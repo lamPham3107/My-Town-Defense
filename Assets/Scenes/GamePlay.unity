@@ -6709,6 +6709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 342347925}
+  - component: {fileID: 342347926}
   m_Layer: 0
   m_Name: Buildings
   m_TagString: Untagged
@@ -6738,6 +6739,20 @@ Transform:
   - {fileID: 1884385337}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &342347926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342347924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab3479645e5cb44eab8812f9451bbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img_select_tower: {fileID: 590377593}
+  tower_pos: {x: 0, y: 0}
 --- !u!1 &343288424
 GameObject:
   m_ObjectHideFlags: 0
@@ -6994,7 +7009,7 @@ GameObject:
   - component: {fileID: 420928009}
   - component: {fileID: 420928008}
   m_Layer: 5
-  m_Name: archer (3)
+  m_Name: electer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7064,7 +7079,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 420928009}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2117799560}
+        m_TargetAssemblyTypeName: Built_Tower, Assembly-CSharp
+        m_MethodName: Build_Electer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &420928009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7248,7 +7275,7 @@ Transform:
   m_GameObject: {fileID: 483006428}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.45, y: -5.4, z: 0}
+  m_LocalPosition: {x: 23.48, y: -5.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7847,7 +7874,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 628637916}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2117799560}
+        m_TargetAssemblyTypeName: Built_Tower, Assembly-CSharp
+        m_MethodName: Build_Gunner
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &628637916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7972,7 +8011,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 727869211}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2117799559}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: Close_SelectTower_img
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &727869211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8259,6 +8310,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3645575013693211725, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
+      propertyPath: img_select_tower
+      value: 
+      objectReference: {fileID: 590377593}
     - target: {fileID: 4717274687682760705, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
       propertyPath: m_Name
       value: Building (6)
@@ -8480,7 +8535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -245, y: -200}
+  m_AnchoredPosition: {x: -300, y: -200}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &875687518
@@ -8600,7 +8655,7 @@ Transform:
   m_GameObject: {fileID: 1046751492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.83, y: 0.76, z: 0}
+  m_LocalPosition: {x: -13.1, y: 0.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8901,7 +8956,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1143577766}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2117799560}
+        m_TargetAssemblyTypeName: Built_Tower, Assembly-CSharp
+        m_MethodName: Build_Archer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1143577766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9196,6 +9263,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3645575013693211725, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
+      propertyPath: img_select_tower
+      value: 
+      objectReference: {fileID: 590377593}
     - target: {fileID: 4717274687682760705, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
       propertyPath: m_Name
       value: Building (5)
@@ -9210,6 +9281,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8930178889320246695, guid: 3d8fc7821af3ddd42a09b64a13110fb3, type: 3}
   m_PrefabInstance: {fileID: 140377023}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1243518394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4717274687682760705, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
+  m_PrefabInstance: {fileID: 281851563612601447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1243518395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243518394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 342347926}
+        m_TargetAssemblyTypeName: Built_Tower, Assembly-CSharp
+        m_MethodName: Select_Tower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1302612337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9315,6 +9447,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3645575013693211725, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
+      propertyPath: img_select_tower
+      value: 
+      objectReference: {fileID: 590377593}
     - target: {fileID: 4717274687682760705, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
       propertyPath: m_Name
       value: Building (2)
@@ -9372,6 +9508,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3645575013693211725, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
+      propertyPath: img_select_tower
+      value: 
+      objectReference: {fileID: 590377593}
     - target: {fileID: 4717274687682760705, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
       propertyPath: m_Name
       value: Building (3)
@@ -9573,6 +9713,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3645575013693211725, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
+      propertyPath: img_select_tower
+      value: 
+      objectReference: {fileID: 590377593}
     - target: {fileID: 4717274687682760705, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
       propertyPath: m_Name
       value: Building (4)
@@ -9731,7 +9875,7 @@ GameObject:
   - component: {fileID: 1491534450}
   - component: {fileID: 1491534449}
   m_Layer: 5
-  m_Name: archer (2)
+  m_Name: bomber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9801,7 +9945,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1491534450}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2117799560}
+        m_TargetAssemblyTypeName: Built_Tower, Assembly-CSharp
+        m_MethodName: Build_Bomber
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1491534450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9918,7 +10074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -345, y: -200}
+  m_AnchoredPosition: {x: -400, y: -200}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606463423
@@ -10799,6 +10955,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3645575013693211725, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
+      propertyPath: img_select_tower
+      value: 
+      objectReference: {fileID: 590377593}
     - target: {fileID: 4717274687682760705, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
       propertyPath: m_Name
       value: Building (1)
@@ -11367,6 +11527,8 @@ GameObject:
   - component: {fileID: 2117799558}
   - component: {fileID: 2117799557}
   - component: {fileID: 2117799556}
+  - component: {fileID: 2117799559}
+  - component: {fileID: 2117799560}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -11424,6 +11586,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2117799559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117799555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b59c1eb70b9914aa3bf2a281d0d7ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img_select_tower: {fileID: 590377593}
+--- !u!114 &2117799560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117799555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e2dcf88bb6da24f9f2790b10e9a4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  archer_prefab: {fileID: 3639336495051711514, guid: e1e6de4c23030714f959e2e5bc277d9a, type: 3}
+  gunner_prefab: {fileID: 8493846700199830898, guid: 16dabd1ac80cbba46ade5a9cb779ccc1, type: 3}
+  bomber_prefab: {fileID: 8562866265339763651, guid: a9c2ef7f134f71a4fbc6766e7ddb6042, type: 3}
+  electer_prefab: {fileID: 1713057964621449947, guid: 56f3595eb0d837947a16c79e26951e6c, type: 3}
 --- !u!1001 &281851563612601447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11472,6 +11663,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3645575013693211725, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
+      propertyPath: img_select_tower
+      value: 
+      objectReference: {fileID: 590377593}
     - target: {fileID: 4717274687682760705, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
       propertyPath: m_Name
       value: Building
@@ -11479,7 +11674,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4717274687682760705, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1243518395}
   m_SourcePrefab: {fileID: 100100000, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
 --- !u!1001 &303241060236842479
 PrefabInstance:
@@ -11489,6 +11687,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6649419678354544224}
     m_Modifications:
+    - target: {fileID: 2565217510321256507, guid: 5b5322ba0d79bc24da9cd4f613b63c7c, type: 3}
+      propertyPath: m_Name
+      value: Stone
+      objectReference: {fileID: 0}
     - target: {fileID: 3700018214864515028, guid: 5b5322ba0d79bc24da9cd4f613b63c7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1367531
@@ -11528,10 +11730,6 @@ PrefabInstance:
     - target: {fileID: 3700018214864515028, guid: 5b5322ba0d79bc24da9cd4f613b63c7c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2565217510321256507, guid: 5b5322ba0d79bc24da9cd4f613b63c7c, type: 3}
-      propertyPath: m_Name
-      value: Stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
