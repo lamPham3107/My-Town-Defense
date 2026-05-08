@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// dung cho class
 
-[SerializeField]
+[System.Serializable]
 public class ZombieGroups 
 {
     public ZombieData ZombieData;

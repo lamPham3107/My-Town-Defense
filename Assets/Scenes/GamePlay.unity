@@ -7206,7 +7206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 470595752}
-  - component: {fileID: 470595751}
+  - component: {fileID: 470595753}
   m_Layer: 0
   m_Name: Waypoints
   m_TagString: Untagged
@@ -7214,23 +7214,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &470595751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470595750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefdf77469df6d94a9ee596914f9ac4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Waypoints:
-  - {fileID: 1046751493}
-  - {fileID: 1205104849}
-  - {fileID: 799616659}
-  - {fileID: 483006429}
 --- !u!4 &470595752
 Transform:
   m_ObjectHideFlags: 0
@@ -7250,6 +7233,18 @@ Transform:
   - {fileID: 483006429}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &470595753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470595750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f8d84a76ac0cb4a8b9ae362e663435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &483006428
 GameObject:
   m_ObjectHideFlags: 0
@@ -7925,6 +7920,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628637913}
   m_CullTransparentMesh: 1
+--- !u!1 &658592954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 658592955}
+  - component: {fileID: 658592956}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &658592955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658592954}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6405246, y: -1.115522, z: -0.008713102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &658592956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658592954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8293f4e3fa67c419954a54339474bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mapData: {fileID: 1487275644}
+  _pathHolder: {fileID: 470595753}
 --- !u!4 &698623665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1896509945288716758, guid: 332418d2533cb3845b60ef5e7aad38c1, type: 3}
@@ -9824,29 +9865,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1487275643}
-  - component: {fileID: 1487275642}
+  - component: {fileID: 1487275644}
+  - component: {fileID: 1487275645}
   m_Layer: 0
-  m_Name: WaySpawner
+  m_Name: WayManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1487275642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487275641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31be48fd6b197a64e9ade894493de569, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemiesPerWave: 5
-  spawnDelay: 2
-  waveCooldown: 50
 --- !u!4 &1487275643
 Transform:
   m_ObjectHideFlags: 0
@@ -9862,6 +9889,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1487275644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487275641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523931663fb275744bf94e8da91e849f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapId: 1
+  mapName: level_01
+  sceneName: game
+  startingGold: 100
+  startingLives: 10
+  waveConfigs:
+  - {fileID: 11400000, guid: 2cfa67663d81517408bd2ca3ae9c2386, type: 2}
+--- !u!114 &1487275645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487275641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496b021e40ddbaf48b496a8552c02300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mapData: {fileID: 1487275644}
+  _zombiePrefabMap:
+  - {fileID: 6283555929115219231, guid: 224b0146ca31c7846afb24263110d195, type: 3}
 --- !u!1 &1491534447
 GameObject:
   m_ObjectHideFlags: 0
@@ -10866,27 +10927,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1927069157}
-  - component: {fileID: 1927069156}
+  - component: {fileID: 1927069158}
   m_Layer: 0
-  m_Name: Zombies_pooling
+  m_Name: PoolManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1927069156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927069155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45481c2f6dbe0fd4a8ce0c22b324be8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombie_01_Prefab: {fileID: 6201492999794192796, guid: 224b0146ca31c7846afb24263110d195, type: 3}
 --- !u!4 &1927069157
 Transform:
   m_ObjectHideFlags: 0
@@ -10902,6 +10950,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1927069158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927069155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03bc670f5de3a24c865262c9cd48192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombiePrefab:
+  - {fileID: 6283555929115219231, guid: 224b0146ca31c7846afb24263110d195, type: 3}
+  _zombiePoolSize: 10
 --- !u!4 &1960508464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1891663299812713180, guid: 818c322ad0c1bc34a93835bf439c04ab, type: 3}
@@ -12303,3 +12366,4 @@ SceneRoots:
   - {fileID: 1487275643}
   - {fileID: 833522692}
   - {fileID: 2117799558}
+  - {fileID: 658592955}
