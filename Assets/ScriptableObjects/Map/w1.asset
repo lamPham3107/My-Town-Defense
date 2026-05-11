@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: w1
   m_EditorClassIdentifier: 
   waveIndex: 1
+  zombieGroups:
+  - ZombieData: {fileID: 11400000, guid: 43f242fa4d79cda448c5dbf244d826f9, type: 2}
+    count: 5
+    spawnDelay: 2
   spawnDelay: 5
   delayBeforeWave: 5
   waveReward: 10

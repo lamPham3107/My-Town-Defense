@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 684894795803137900}
   - component: {fileID: 267117428614288349}
+  - component: {fileID: -4232427333536375360}
   m_Layer: 0
   m_Name: Tonwer_Electer
   m_TagString: Untagged
@@ -80,6 +81,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.5}
   m_EdgeRadius: 0
+--- !u!114 &-4232427333536375360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713057964621449947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94b1639f935c3149bdc44a2e3adbe56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerData: {fileID: 0}
+  _towerData: {fileID: 0}
+  _shootPoint: {fileID: 0}
 --- !u!1 &6178399833860972358
 GameObject:
   m_ObjectHideFlags: 0

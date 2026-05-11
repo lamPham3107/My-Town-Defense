@@ -8,10 +8,13 @@ public class PoolManager : MonoBehaviour
 
     [SerializeField] private ZombieController[] _zombiePrefab;
     [SerializeField] private int _zombiePoolSize = 10;
+    //[SerializeField] private int _projectTilePoolSize = 20;
 
     private Dictionary<string, ObjectPool<ZombieController>> _zombiePools = new();
+    private Dictionary<string , ObjectPool<ProjectTileController>> _projectTilePools = new();
 
     private Transform zombieParent;
+    private Transform projectTileParent;
 
     private void Awake()
     {
@@ -26,6 +29,7 @@ public class PoolManager : MonoBehaviour
         {
             RegisterZombie(_zombiePrefab[i]);
         }
+        projectTileParent = new GameObject("ProjectTilePool").transform;
     }
 
     private void RegisterZombie(ZombieController prefab)
@@ -54,4 +58,27 @@ public class PoolManager : MonoBehaviour
     }
 
 
+    public void RegisterProjectTile(ProjectTileController prefab , int size = 20)
+    {
+        string key = prefab.name;
+        if (!_projectTilePools.ContainsKey(key))
+        {
+            _projectTilePools[key] = new ObjectPool<ProjectTileController>(prefab, size, projectTileParent);
+        }
+    }
+
+    public ProjectTileController GetProjectTile(ProjectTileController prefab, Vector3 pos, Quaternion rot)
+    {
+        string key = prefab.name;
+        if (!_projectTilePools.ContainsKey(key))
+        {
+            RegisterProjectTile(prefab);
+        }
+        return _projectTilePools[key].Get(pos, rot);
+    }
+
+    public void ReturnProjectTile(ProjectTileController projectTile)
+    {
+        _projectTilePools[projectTile.name].ReturnToPool(projectTile);
+    }
 }

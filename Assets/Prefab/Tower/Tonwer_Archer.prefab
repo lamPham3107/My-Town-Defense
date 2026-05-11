@@ -161,6 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7834607417452201523}
   - component: {fileID: 8751655263423186904}
+  - component: {fileID: -1464813624430737195}
   m_Layer: 0
   m_Name: Tonwer_Archer
   m_TagString: Untagged
@@ -232,6 +233,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.5}
   m_EdgeRadius: 0
+--- !u!114 &-1464813624430737195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639336495051711514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94b1639f935c3149bdc44a2e3adbe56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _towerData: {fileID: 11400000, guid: 3b99e54d701f716418d8bf0ae3cc82a8, type: 2}
+  characterTransform: {fileID: 3491429123700759881}
 --- !u!1 &4174124312903691874
 GameObject:
   m_ObjectHideFlags: 0

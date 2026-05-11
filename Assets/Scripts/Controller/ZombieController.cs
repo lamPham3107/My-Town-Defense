@@ -17,7 +17,7 @@ public class ZombieController : MonoBehaviour
 
     // Paths
     private Vector3[] _waypoints;
-    private int _currentWaypointIndex;
+    public int _currentWaypointIndex;
 
     // Effects
 
@@ -112,11 +112,39 @@ public class ZombieController : MonoBehaviour
         }
     }
 
+    private void Die()
+    {
+        if (_isDead) return;
+        _isDead = true;
+
+
+        OnDeath?.Invoke(this);
+        PoolManager.instance.ReturnZombie(this);
+    }
     private void ReachEnd()
     {
         if(_isDead) return;
         _isDead = true;
         OnReachEnd?.Invoke(this);
         PoolManager.instance.ReturnZombie(this);
+    }
+
+    public void TakeDamage(float amount , DamageType type)
+    {
+        if (_isDead) return;
+
+        float finalDamage = type switch
+        {
+            DamageType.Physical => amount * (1 - Data.armor / 100),
+            DamageType.Magical => amount * (1 - Data.magicResist / 100),
+            _ => amount
+        };
+        _currentHp = Mathf.Max(0, _currentHp - finalDamage);
+
+
+        if (_currentHp <= 0)
+        {
+            Die();
+        }
     }
 }
