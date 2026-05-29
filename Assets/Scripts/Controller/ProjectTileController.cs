@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ProjectTileController : MonoBehaviour
+public class ProjectTileController : MonoBehaviour , IProjectile
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private TowerController _owner;
@@ -33,6 +33,27 @@ public class ProjectTileController : MonoBehaviour
 
     private void OnHit()
     {
-        
+        var data = _owner._towerData;
+
+        if (data.splashRadius > 0f)
+        {
+            // AOE
+            var hits = Physics2D.OverlapCircleAll(transform.position, data.splashRadius, LayerMask.GetMask("Enemy"));
+            foreach (var hit in hits)
+            {
+                var zombie = hit.GetComponent<ZombieController>();
+                if (zombie != null && !zombie._isDead)
+                {
+                    zombie.TakeDamage(data.damage, data.damageType);
+                }
+            }
+        }
+        else
+        {
+            // single target
+            _target.TakeDamage(data.damage, data.damageType);
+        }
+
+        PoolManager.instance.ReturnProjectTile(this);
     }
 }

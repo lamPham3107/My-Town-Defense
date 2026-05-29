@@ -22,6 +22,6 @@ MonoBehaviour:
   damageType: 0
   splashRadius: 3
   statusEffect: 0
-  targetPriority: 0
-  projectilePrefab: {fileID: 0}
+  targetPriority: 4
+  projectilePrefab: {fileID: 3868536889273034309, guid: 63c5162a4ebf9e44b9021a9417ad621f, type: 3}
   towerSprite: {fileID: 21300000, guid: f4c5c5168e1c551488e71e14ade2595d, type: 3}

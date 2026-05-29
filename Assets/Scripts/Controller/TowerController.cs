@@ -7,6 +7,8 @@ public class TowerController : MonoBehaviour
 {
     //[SerializeField] private TowerData towerData;
     public TowerData _towerData;
+    [SerializeField] private Animator _animator;
+    private bool _isShooting = false;
 
     private int _level = 0;
 
@@ -17,16 +19,18 @@ public class TowerController : MonoBehaviour
 
     private float _attackTimer;
     private ZombieController _currentTarget;
-    [SerializeField] private Transform characterTransform;
-    //[SerializeField] private Transform _shootPoint;
+    [SerializeField] private Transform _characterPoint;
+    [SerializeField] private Transform _projectPoint;
+    //[SerializeField] private Transform _characterPoint;
 
 
     private void Update()
     {
 
         _attackTimer += Time.deltaTime;
-        // tim target moi neu target cu null hoac da chet
-        if (_currentTarget == null || _currentTarget._isDead)
+        // tim target moi neu target cu null hoac da chet hoac ra ngoai vung
+        if (_currentTarget == null || _currentTarget._isDead  
+            || Vector3.Distance(transform.position,_currentTarget.transform.position) > Range)
         {
             Debug.Log("Finding new target...");
             _currentTarget = FindTaget();
@@ -35,15 +39,22 @@ public class TowerController : MonoBehaviour
         {
             return;
         }
+        
 
         // Quay tower về phía target (2D)
         Vector3 dir = (_currentTarget.transform.position - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 135f;
-        characterTransform.rotation = Quaternion.Euler(0, 0, angle);
+        float projectileAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+        if(_characterPoint != null)
+        {
+            _characterPoint.rotation = Quaternion.Euler(0, 0, angle);
+        }
+        _projectPoint.rotation = Quaternion.Euler(0, 0, projectileAngle);
 
         if (_attackTimer > 1 / AttackSpeed)
         {
             _attackTimer = 0f;
+            StartCoroutine(ShootAnimation());
         }
 
 
@@ -70,6 +81,39 @@ public class TowerController : MonoBehaviour
             _ => _zombiesInRange[0]
         };
     }
+
+    private IEnumerator ShootAnimation()
+    {
+        _isShooting = true;
+        _animator.SetTrigger("Shoot");
+        yield return null;
+        float aniLenght = _animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(aniLenght * 0.5f); // Đợi đến giữa animation để bắn
+        Shoot();
+        yield return new WaitForSeconds(aniLenght * 0.5f); // Đợi nốt phần còn lại của animation
+        _isShooting = false;
+    }
+
+    private void Shoot()
+    {
+        if (_towerData.projectilePrefab == null || _currentTarget == null) return;
+
+        // Lấy component IProjectile từ prefab (bất kể loại nào)
+        var prefabComp = _towerData.projectilePrefab.GetComponent<IProjectile>();
+        if (prefabComp == null)
+        {
+            Debug.LogError("Prefab không có IProjectile component!");
+            return;
+        }
+
+        var mb = PoolManager.instance.GetProjectTile(
+            prefabComp as MonoBehaviour,
+            _projectPoint.position,
+            _projectPoint.rotation);
+
+        // Cast về IProjectile để gọi Init
+        (mb as IProjectile)?.Init(this, _currentTarget);
+    }   
 
     void OnDrawGizmosSelected()
     {
