@@ -125,6 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1512935972141116998}
   - component: {fileID: 1766956164482621912}
+  - component: {fileID: 4937467703043240821}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -199,6 +200,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4937467703043240821
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7698959592473860902}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5be15b8a534389245b3ee68b324a69ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8562866265339763651
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +232,6 @@ GameObject:
   - component: {fileID: 5227106360989924155}
   - component: {fileID: 2646362781275082042}
   - component: {fileID: 2599982551133293311}
-  - component: {fileID: 8319091204126870726}
   - component: {fileID: 7217397689684728932}
   m_Layer: 0
   m_Name: Tonwer_Bomber
@@ -229,7 +250,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6172820528701250178}
@@ -296,30 +317,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _towerData: {fileID: 11400000, guid: 177679589710bcf43a58ef5da0a863bf, type: 2}
-  _animator: {fileID: 0}
+  _animator: {fileID: 4937467703043240821}
   _characterPoint: {fileID: 0}
   _projectPoint: {fileID: 3543322427814068557}
---- !u!95 &8319091204126870726
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8562866265339763651}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5be15b8a534389245b3ee68b324a69ea, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &7217397689684728932
 SpriteRenderer:
   m_ObjectHideFlags: 0

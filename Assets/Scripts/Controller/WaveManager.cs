@@ -51,10 +51,8 @@ public class WaveManager : MonoBehaviour
     {
         _mapData = mapData;
         _waypoints = path.GetWaypoints();
+        ResourceManager.Instance.Init(_mapData.startingGold, _mapData.startingLives);
 
-        Debug.Log("Init called. WaveConfigs count: " + _mapData.waveConfigs.Length);
-        Debug.Log("Waypoints count: " + _waypoints.Length);
-        Debug.Log("currentwave: " + _mapData.waveConfigs[_currentWaveIndex]);
         StartCoroutine(RunWave(_mapData.waveConfigs[_currentWaveIndex])); // gọi thẳng
     }
 
@@ -121,7 +119,7 @@ public class WaveManager : MonoBehaviour
     {
         zombie.OnDeath -= OnZombieDied;
         zombie.OnReachEnd -= OnZombieReachedEnd;
-
+        ResourceManager.Instance.AddGold(zombie.Data.reward);
         _aliveZombies--;
     }
 
@@ -129,6 +127,7 @@ public class WaveManager : MonoBehaviour
     {
         zombie.OnDeath -= OnZombieDied;
         zombie.OnReachEnd -= OnZombieReachedEnd;
+        ResourceManager.Instance.LoseLives(zombie.Data.livesOnReach);
         _aliveZombies--;
     }
 

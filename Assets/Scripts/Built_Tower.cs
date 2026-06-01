@@ -23,21 +23,25 @@ public class Built_Tower : MonoBehaviour
     public void Build_Archer()
     {
         Vector2 buildPos = GetBuildPos();
+        ResourceManager.Instance.SpendGold(100);
         Instantiate(archer_prefab, buildPos, Quaternion.identity);
     }
     public void Build_Gunner()
     {
         Vector2 buildPos = GetBuildPos();
+        ResourceManager.Instance.SpendGold(120);
         Instantiate(gunner_prefab, buildPos, Quaternion.identity);
     }
     public void Build_Bomber()
     {
         Vector2 buildPos = GetBuildPos();
+        ResourceManager.Instance.SpendGold(150);
         Instantiate(bomber_prefab, buildPos, Quaternion.identity);
     }
     public void Build_Electer()
     {
         Vector2 buildPos = GetBuildPos();
+        ResourceManager.Instance.SpendGold(120);
         Instantiate(electer_prefab, buildPos, Quaternion.identity);
     }
 }
