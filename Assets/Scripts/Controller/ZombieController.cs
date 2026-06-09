@@ -27,7 +27,9 @@ public class ZombieController : MonoBehaviour
 
     // Components
     private SpriteRenderer _spriteRenderer;
-
+    [SerializeField] private GameObject _hpBarRoot;
+    [SerializeField] private SpriteRenderer _hpBarFill;
+    private Coroutine _hpBarCoroutine;
 
     private float offsetX;
     private float offsetY;
@@ -37,27 +39,29 @@ public class ZombieController : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Init(ZombieData data , Vector3[] waypoints)
+    public void Init(ZombieData data, Vector3[] waypoints)
     {
         _data = data;
         _waypoints = waypoints;
         _currentHp = Data.maxHp;
         _currentSpeed = Data.speed;
         _isDead = false;
-
         _spriteRenderer.sprite = Data.sprite;
+        _hpBarRoot.SetActive(false);
+
+        transform.position = new Vector3(
+        _waypoints[0].x + offsetX,
+        _waypoints[0].y + offsetY,
+        _waypoints[0].z
+        );
 
     }
     private void OnEnable()
     {
         _currentWaypointIndex = 0;
-        offsetX = UnityEngine.Random.Range(-0.2f, 0.2f);
-        offsetY = UnityEngine.Random.Range(-0.2f, 0.2f);
+        offsetX = UnityEngine.Random.Range(-0.5f, 0.5f);
+        offsetY = UnityEngine.Random.Range(-0.5f, 0.5f);
 
-    }
-    private void Start()
-    {
-        
     }
     private void Update()
     {
@@ -70,66 +74,57 @@ public class ZombieController : MonoBehaviour
             ReachEnd();
             return;
         }
-        Vector3 target = GetOffsetPosition(_currentWaypointIndex);
+
+        Vector3 current = _waypoints[_currentWaypointIndex];
+        Vector3 prev = _currentWaypointIndex > 0
+            ? _waypoints[_currentWaypointIndex - 1]
+            : current;
+
+        bool isHorizontal = Mathf.Abs(current.y - prev.y) < 0.01f;
+
+        // Target giữ đúng lane offset của zombie này
+        Vector3 target;
+        if (isHorizontal)
+        {
+            // Đi ngang → chỉ quan tâm X của waypoint, Y giữ nguyên lane
+            target = new Vector3(current.x, current.y + offsetY, current.z);
+        }
+        else
+        {
+            // Đi dọc → chỉ quan tâm Y của waypoint, X giữ nguyên lane
+            target = new Vector3(current.x + offsetX, current.y, current.z);
+        }
 
         transform.position = Vector3.MoveTowards(
             transform.position,
             target,
             _currentSpeed * Time.deltaTime
-            );
+        );
 
         if (Vector3.Distance(transform.position, target) < 0.05f)
         {
             _currentWaypointIndex++;
         }
-
     }
-    private Vector3 GetOffsetPosition(int index)
-    {
-        if (index >= _waypoints.Length)
-            return transform.position;
-        Vector3 pos = _waypoints[index];
-        // Xác định hướng đi đến waypoint này
-        // So sánh với waypoint trước để biết đang đi ngang hay dọc
-        if (index == 0)
-        {
-            // Điểm đầu: áp cả 2 offset
-            return new Vector3(pos.x + offsetX, pos.y + offsetY, pos.z);
-        }
 
-        Vector3 prevPos = _waypoints[index - 1];
-        bool isMovingHorizontal = Mathf.Abs(pos.y - prevPos.y) < 0.01f;
-
-        if (isMovingHorizontal)
-        {
-            // Đi ngang → giữ offsetY, không lệch X tại điểm rẽ
-            return new Vector3(pos.x, pos.y + offsetY, pos.z);
-        }
-        else
-        {
-            // Đi dọc → giữ offsetX, không lệch Y tại điểm rẽ
-            return new Vector3(pos.x + offsetX, pos.y, pos.z);
-        }
-    }
 
     private void Die()
     {
         if (_isDead) return;
         _isDead = true;
 
-
         OnDeath?.Invoke(this);
         PoolManager.instance.ReturnZombie(this);
     }
     private void ReachEnd()
     {
-        if(_isDead) return;
+        if (_isDead) return;
         _isDead = true;
         OnReachEnd?.Invoke(this);
         PoolManager.instance.ReturnZombie(this);
     }
 
-    public void TakeDamage(float amount , DamageType type)
+    public void TakeDamage(float amount, DamageType type)
     {
         if (_isDead) return;
 
@@ -140,11 +135,29 @@ public class ZombieController : MonoBehaviour
             _ => amount
         };
         _currentHp = Mathf.Max(0, _currentHp - finalDamage);
-
+        UpdateHpBar();
 
         if (_currentHp <= 0)
         {
             Die();
         }
+    }
+
+    private void UpdateHpBar()
+    {
+        if (_hpBarFill != null)
+        {
+            _hpBarFill.transform.localScale = new Vector3(_currentHp / Data.maxHp, 1, 1);
+        }
+        _hpBarRoot.SetActive(true);
+        if (_hpBarCoroutine != null) StopCoroutine(_hpBarCoroutine);
+        _hpBarCoroutine = StartCoroutine(HideHpBarAfterDelay(1f));
+
+    }
+
+    private IEnumerator HideHpBarAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        _hpBarRoot.SetActive(false);
     }
 }

@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a612d5c979a1d4641b3e46bd0648fbed, type: 3}
-  m_Name: Gunner
+  m_Name: Archer_2
   m_EditorClassIdentifier: 
-  id: 3
-  displayName: gunner
-  buildCost: 120
-  upgradeCost: 
-  damage: 1
-  attackSpeed: 1
-  range: 5
+  id: 2
+  displayName: Archer Lv 2
+  towerPrefab: {fileID: 8469993901539429906, guid: 049f5855552155a439ce572edecf92c5, type: 3}
+  buildCost: 0
+  upgradeCost: 200
+  sellValue: 185
+  nextLevel: {fileID: 0}
+  damage: 2
+  attackSpeed: 2
+  range: 6
   damageType: 0
   splashRadius: 0
   statusEffect: 0
-  targetPriority: 0
-  projectilePrefab: {fileID: 1317255358710006207, guid: 7d5166f353b59e243ae8e4b1215d62a9, type: 3}
-  towerSprite: {fileID: 21300000, guid: 454371020293c4c47ac0fe4eea1f38d0, type: 3}
+  targetPriority: 4
+  projectilePrefab: {fileID: 3868536889273034309, guid: 63c5162a4ebf9e44b9021a9417ad621f, type: 3}

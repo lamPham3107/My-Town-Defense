@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TowerData", menuName = "Game/Tower Data")]
@@ -6,10 +7,16 @@ public class TowerData : ScriptableObject
     [Header("Basic Info")]
     public string id;
     public string displayName;
+    public GameObject towerPrefab;
 
     [Header("Cost")]
     public int buildCost;
-    public int[] upgradeCost;
+    public int upgradeCost;
+    public int sellValue;
+
+    [Header("Next Level")]
+    public TowerData nextLevel;
+
 
     [Header("Combat")]
     public float damage;
@@ -26,7 +33,6 @@ public class TowerData : ScriptableObject
 
     [Header("Visual")]
     public GameObject projectilePrefab;
-    public Sprite towerSprite;
 }
 
 public enum TargetPriority

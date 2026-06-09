@@ -12,7 +12,6 @@ public enum WaveState
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager instance { get; private set; }
-
     [SerializeField] private MapData _mapData;
     [SerializeField] private ZombieController[] _zombiePrefabMap;
 
@@ -23,6 +22,7 @@ public class WaveManager : MonoBehaviour
 
     public System.Action<int, int> OnWaveStarted;   // (currentWave, totalWaves)
     public System.Action<int> OnWaveCompleted; // (waveIndex)
+    public System.Action OnNextWaveAvailable;
     public System.Action OnAllWavesCompleted;
 
     private Vector3[] _waypoints;
@@ -52,13 +52,9 @@ public class WaveManager : MonoBehaviour
         _mapData = mapData;
         _waypoints = path.GetWaypoints();
         ResourceManager.Instance.Init(_mapData.startingGold, _mapData.startingLives);
-
-        StartCoroutine(RunWave(_mapData.waveConfigs[_currentWaveIndex])); // gọi thẳng
     }
 
-    // goi start wave tu UI hoac auto
-
-    private void StartNextWave()
+    public void StartNextWave()
     {
         if(_currentWaveIndex >= _mapData.waveConfigs.Length)
         {
@@ -70,12 +66,10 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator RunWave(WaveConfig config)
     {
-        Debug.Log("RunWave started. Groups: " + config.zombieGroups.Length);
         _currentWaveState = WaveState.InProgress;
         OnWaveStarted?.Invoke(_currentWaveIndex + 1, _mapData.waveConfigs.Length);
         yield return new WaitForSeconds(config.delayBeforeWave);
-        Debug.Log("Delay done, bắt đầu spawn");
-        _aliveZombies = 0;
+
         foreach ( var group in config.zombieGroups)
         {
             Debug.Log("Group: " + group.ZombieData.id + " count: " + group.count);
@@ -87,18 +81,20 @@ public class WaveManager : MonoBehaviour
                 yield return new WaitForSeconds(config.spawnDelay);
             }
         }
-
-        // Chờ tất cả zombie xử lý xong
-        yield return new WaitUntil(() => _aliveZombies <= 0);
-
-        // Wave complete
-        _currentWaveState = WaveState.Completed;
-        OnWaveCompleted?.Invoke(_currentWaveIndex);
-
         _currentWaveIndex++;
-
-        if (_currentWaveIndex >= _mapData.waveConfigs.Length)
+        if(_currentWaveIndex < _mapData.waveConfigs.Length)
+        {
+            float waitTime = _mapData.waveConfigs[_currentWaveIndex].delayBeforeWave;
+            Debug.Log($"Wave {_currentWaveIndex} completed. Next wave in {waitTime} seconds.");
+            StartCoroutine(NotifyNextWaveReady(waitTime));
+        }
+        else
+        {
+            // Hết wave → chờ zombie cuối chết rồi kết thúc
+            yield return new WaitUntil(() => _aliveZombies <= 0);
             OnAllWavesCompleted?.Invoke();
+        }
+
     }
 
     private void SpawnZombie(ZombieData data)
@@ -131,4 +127,9 @@ public class WaveManager : MonoBehaviour
         _aliveZombies--;
     }
 
+    private IEnumerator NotifyNextWaveReady(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        UIManager.Instance.ShowButtonStartWave();
+    }
 }

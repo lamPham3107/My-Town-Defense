@@ -16,6 +16,7 @@ public class PoolManager : MonoBehaviour
     private Transform zombieParent;
     private Transform projectTileParent;
 
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -30,6 +31,7 @@ public class PoolManager : MonoBehaviour
             RegisterZombie(_zombiePrefab[i]);
         }
         projectTileParent = new GameObject("ProjectTilePool").transform;
+
     }
 
     private void RegisterZombie(ZombieController prefab)
@@ -83,4 +85,5 @@ public class PoolManager : MonoBehaviour
         string key = projectTile.name.Replace("(Clone)", "").Trim();
         _projectTilePools[key].ReturnToPool(projectTile);
     }
+
 }

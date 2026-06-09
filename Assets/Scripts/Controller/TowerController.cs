@@ -21,6 +21,7 @@ public class TowerController : MonoBehaviour
     private ZombieController _currentTarget;
     [SerializeField] private Transform _characterPoint;
     [SerializeField] private Transform _projectPoint;
+
     //[SerializeField] private Transform _characterPoint;
 
 
@@ -120,7 +121,47 @@ public class TowerController : MonoBehaviour
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, Range);
     }
+    public bool CanUpgrade() => _towerData.nextLevel != null;
+
+    public int GetUpgradeCost()
+    {
+        if (!CanUpgrade()) return 0;
+        int cost = _towerData.upgradeCost;
+        return cost;
+    }
+    public bool Upgrade()
+    {
+        if (!CanUpgrade()) return false;
+        int cost = GetUpgradeCost();
+
+        if (!ResourceManager.Instance.SpendGold(cost))
+        {
+            Debug.Log("Not enough gold to upgrade!");
+            return false;
+        }
+        Transform parent = transform.parent;
+        Vector3 currentPos = transform.position;
+        TowerData nextTowerData = _towerData.nextLevel;
+
+        Destroy(gameObject);
 
 
-    
+        var newTowerObj = Instantiate(nextTowerData.towerPrefab, currentPos, Quaternion.identity, parent);
+        TowerPanelMenu.Instance.Hide();
+        return true;
+    }
+
+    public int GetSellValue()
+    {
+        return _towerData.sellValue;
+    }
+
+    public void Sell()
+    {
+        ResourceManager.Instance.AddGold(GetSellValue());
+        TowerPanelMenu.Instance.Hide();
+        Destroy(gameObject);
+    }
+
+
 }
