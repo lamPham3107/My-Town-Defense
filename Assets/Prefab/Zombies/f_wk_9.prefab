@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 5043543172639104426}
   - component: {fileID: 1478337110431419434}
   m_Layer: 6
-  m_Name: zombie_02
+  m_Name: f_wk_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_SortingLayerID: -996708249
   m_SortingLayer: 4
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 0eb7c3aba0a92054b8143dd0048a5f90, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5e68d830fae003f458ecca1c07177c95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad23d89d259e074c8ebdb9fb07afe2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 7693407e87d9f8247aeb063f9f199ca4, type: 2}
+  _data: {fileID: 11400000, guid: 6a99be0e87e38d843a2af7a008eeeef8, type: 2}
   _currentWaypointIndex: 0
   _hpBarRoot: {fileID: 5824139991820361618}
   _hpBarFill: {fileID: 1143326558156012546}

@@ -34,6 +34,8 @@ public class ZombieController : MonoBehaviour
     private float offsetX;
     private float offsetY;
 
+    private bool _isInitialized = false;
+
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -48,7 +50,7 @@ public class ZombieController : MonoBehaviour
         _isDead = false;
         _spriteRenderer.sprite = Data.sprite;
         _hpBarRoot.SetActive(false);
-
+        _isInitialized = true;
         transform.position = new Vector3(
         _waypoints[0].x + offsetX,
         _waypoints[0].y + offsetY,
@@ -58,13 +60,15 @@ public class ZombieController : MonoBehaviour
     }
     private void OnEnable()
     {
+        _isInitialized = false;
         _currentWaypointIndex = 0;
-        offsetX = UnityEngine.Random.Range(-0.5f, 0.5f);
+        offsetX = UnityEngine.Random.Range(-1f, 1f);
         offsetY = UnityEngine.Random.Range(-0.5f, 0.5f);
 
     }
     private void Update()
     {
+        if (!_isInitialized) return;
         Move();
     }
     private void Move()
@@ -76,35 +80,30 @@ public class ZombieController : MonoBehaviour
         }
 
         Vector3 current = _waypoints[_currentWaypointIndex];
-        Vector3 prev = _currentWaypointIndex > 0
-            ? _waypoints[_currentWaypointIndex - 1]
-            : current;
 
+        // Waypoint đầu tiên → áp cả 2 offset, giữ nguyên vị trí spawn
+        if (_currentWaypointIndex == 0)
+        {
+            Vector3 target0 = new Vector3(current.x + offsetX, current.y + offsetY, current.z);
+            transform.position = Vector3.MoveTowards(transform.position, target0, _currentSpeed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, target0) < 0.05f)
+                _currentWaypointIndex++;
+            return;
+        }
+
+        Vector3 prev = _waypoints[_currentWaypointIndex - 1];
         bool isHorizontal = Mathf.Abs(current.y - prev.y) < 0.01f;
 
-        // Target giữ đúng lane offset của zombie này
         Vector3 target;
         if (isHorizontal)
-        {
-            // Đi ngang → chỉ quan tâm X của waypoint, Y giữ nguyên lane
             target = new Vector3(current.x, current.y + offsetY, current.z);
-        }
         else
-        {
-            // Đi dọc → chỉ quan tâm Y của waypoint, X giữ nguyên lane
             target = new Vector3(current.x + offsetX, current.y, current.z);
-        }
 
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            target,
-            _currentSpeed * Time.deltaTime
-        );
+        transform.position = Vector3.MoveTowards(transform.position, target, _currentSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, target) < 0.05f)
-        {
             _currentWaypointIndex++;
-        }
     }
 
 

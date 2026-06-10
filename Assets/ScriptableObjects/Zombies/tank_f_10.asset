@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8a4c62d0f661824cbb57c1899a613f7, type: 3}
-  m_Name: zombie_01
+  m_Name: tank_f_10
   m_EditorClassIdentifier: 
-  id: 1
-  displayName: z1
-  maxHp: 10
-  speed: 0.1
-  armor: 1
-  magicResist: 1
-  reward: 10
+  id: 8
+  displayName: z8
+  maxHp: 120
+  speed: 0.3
+  armor: 0
+  magicResist: 20
+  reward: 50
   livesOnReach: 1
-  sprite: {fileID: 21300000, guid: aeed941b589960445a7e25578c7ba406, type: 3}
+  sprite: {fileID: 21300000, guid: f1334298aa7df4647a848f807c5eb7ca, type: 3}
   isSlow: 0
   isBleed: 0

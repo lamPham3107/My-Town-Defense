@@ -28,7 +28,6 @@ public class WaveManager : MonoBehaviour
     private Vector3[] _waypoints;
     private readonly Dictionary<string, ZombieController> _prefabLookup = new();
 
-
     private void Awake()
     {
         if(instance != null)

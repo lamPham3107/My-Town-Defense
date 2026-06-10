@@ -16,5 +16,5 @@ public enum EffectType
 {
     Slow,
     Bleed,
-
+    None
 }
