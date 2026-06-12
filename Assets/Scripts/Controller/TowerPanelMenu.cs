@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ public class TowerPanelMenu : MonoBehaviour
 
     public Button btnUpgrade;
     public Button btnSell;
+    public TextMeshProUGUI txtUpgradeCost;
+    public TextMeshProUGUI txtSellCost;
     public Canvas canvas;
     private TowerController currentTower;
     private void Awake()
@@ -17,7 +20,7 @@ public class TowerPanelMenu : MonoBehaviour
         Hide();
     }
 
-    public void Show(TowerController tower)
+    public void ShowUpgradeAndSell(TowerController tower)
     {
         currentTower = tower;
 
@@ -31,6 +34,8 @@ public class TowerPanelMenu : MonoBehaviour
             canvas.worldCamera,
             out Vector2 localPos
         );
+        txtUpgradeCost.text = currentTower._towerData.upgradeCost.ToString();
+        txtSellCost.text = currentTower._towerData.sellValue.ToString();
 
         GetComponent<RectTransform>().localPosition = localPos;
 

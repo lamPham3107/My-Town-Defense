@@ -10,6 +10,9 @@ public class InputHandle : MonoBehaviour
 
         // Chặn nếu đang click vào UI
         if (EventSystem.current.IsPointerOverGameObject()) return;
+
+        // Chặn khi đang dùng skill
+        if (SkillBomb.Instance != null && SkillBomb.Instance._isDragging) return;
         // Touch cần check riêng
         if (IsTouchOverUI()) return;
 
@@ -23,7 +26,7 @@ public class InputHandle : MonoBehaviour
             if (tower != null)
             {
                 HideAll();
-                TowerPanelMenu.Instance.Show(tower);
+                TowerPanelMenu.Instance.ShowUpgradeAndSell(tower);
                 return;
             }
         }
