@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a612d5c979a1d4641b3e46bd0648fbed, type: 3}
-  m_Name: Archer_2
+  m_Name: Bomber_3
   m_EditorClassIdentifier: 
-  id: 2
-  displayName: Archer Lv 2
-  towerPrefab: {fileID: 4170581049135317578, guid: 7d8359a3d6d55394bb64358aab3e2732, type: 3}
+  id: 11
+  displayName: Bomber Lv1
+  towerPrefab: {fileID: 8562866265339763651, guid: 9d842fb124236e548983cfb50d0f5f29, type: 3}
   buildCost: 0
-  upgradeCost: 200
-  sellValue: 185
-  nextLevel: {fileID: 11400000, guid: 6dcff04fbc8a1ec489f05bb7ee9a0a53, type: 2}
-  damage: 5
-  attackSpeed: 1.2
-  range: 3.5
+  upgradeCost: 0
+  sellValue: 600
+  nextLevel: {fileID: 0}
+  damage: 10
+  attackSpeed: 0.7
+  range: 5.5
   damageType: 0
-  splashRadius: 0
+  splashRadius: 2
   statusEffect: 2
   targetPriority: 4
-  projectilePrefab: {fileID: 3868536889273034309, guid: 63c5162a4ebf9e44b9021a9417ad621f, type: 3}
+  projectilePrefab: {fileID: 4986838576825971874, guid: 98056079586aa2944846c8c3eecd9e53, type: 3}

@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a612d5c979a1d4641b3e46bd0648fbed, type: 3}
   m_Name: Bomber_1
   m_EditorClassIdentifier: 
-  id: 11
+  id: 7
   displayName: Bomber Lv1
   towerPrefab: {fileID: 8562866265339763651, guid: a9c2ef7f134f71a4fbc6766e7ddb6042, type: 3}
-  buildCost: 150
-  upgradeCost: 150
-  sellValue: 100
-  nextLevel: {fileID: 0}
-  damage: 15
-  attackSpeed: 0.2
-  range: 4
+  buildCost: 200
+  upgradeCost: 300
+  sellValue: 150
+  nextLevel: {fileID: 11400000, guid: c02e7884c3042b342a2a3a4e83e16d67, type: 2}
+  damage: 3
+  attackSpeed: 0.5
+  range: 4.5
   damageType: 0
-  splashRadius: 0.5
+  splashRadius: 1
   statusEffect: 2
   targetPriority: 4
   projectilePrefab: {fileID: 4986838576825971874, guid: 98056079586aa2944846c8c3eecd9e53, type: 3}

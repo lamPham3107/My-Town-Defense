@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 2
   displayName: z2
   maxHp: 60
-  speed: 0.2
+  speed: 0.15
   armor: 10
   magicResist: 0
   reward: 25

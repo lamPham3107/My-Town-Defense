@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a612d5c979a1d4641b3e46bd0648fbed, type: 3}
   m_Name: Electer_1
   m_EditorClassIdentifier: 
-  id: 16
+  id: 10
   displayName: Electer Lv 1
   towerPrefab: {fileID: 1713057964621449947, guid: 56f3595eb0d837947a16c79e26951e6c, type: 3}
   buildCost: 150
-  upgradeCost: 150
+  upgradeCost: 220
   sellValue: 100
-  nextLevel: {fileID: 0}
-  damage: 10
-  attackSpeed: 0.5
-  range: 2.5
+  nextLevel: {fileID: 11400000, guid: a2c1c9a1a01235b4ab6351556ffe6c26, type: 2}
+  damage: 5
+  attackSpeed: 0.8
+  range: 3.5
   damageType: 1
   splashRadius: 0
   statusEffect: 2

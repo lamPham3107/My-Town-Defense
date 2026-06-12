@@ -432,16 +432,8 @@ PrefabInstance:
       value: board_zombie
       objectReference: {fileID: 0}
     - target: {fileID: 8635308471390755139, guid: 37fa022259c0622418c493105b809526, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8635308471390755139, guid: 37fa022259c0622418c493105b809526, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8635308471390755139, guid: 37fa022259c0622418c493105b809526, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.4300003
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 8635308471390755139, guid: 37fa022259c0622418c493105b809526, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5036,14 +5028,14 @@ MonoBehaviour:
   mapId: 1
   mapName: level_01
   sceneName: game
-  startingGold: 1000
+  startingGold: 4000
   startingLives: 10
   waveConfigs:
   - {fileID: 11400000, guid: 2cfa67663d81517408bd2ca3ae9c2386, type: 2}
   - {fileID: 11400000, guid: 4290b7fa52fe3fd4e8e124e14112a83d, type: 2}
-  - {fileID: 11400000, guid: 4290b7fa52fe3fd4e8e124e14112a83d, type: 2}
-  - {fileID: 11400000, guid: 4290b7fa52fe3fd4e8e124e14112a83d, type: 2}
-  - {fileID: 11400000, guid: 4290b7fa52fe3fd4e8e124e14112a83d, type: 2}
+  - {fileID: 11400000, guid: d1d7c352e5a538b429b102052e4fd0fd, type: 2}
+  - {fileID: 11400000, guid: 74c58ab48f7c92e41a2987bf770d6497, type: 2}
+  - {fileID: 11400000, guid: 9be750b4a8b766a42abe3540689a8589, type: 2}
 --- !u!114 &1487275645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5152,7 +5144,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 150
+          m_IntArgument: 200
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5565,9 +5557,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 833522692}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -905, y: -43.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 60, y: -43.5}
   m_SizeDelta: {x: 87, y: 83}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1729474883
@@ -6490,7 +6482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 220
+  m_text: 150
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26507f248a46cbf4fa958167f580e2ce, type: 2}
   m_sharedMaterial: {fileID: -5660775149628104760, guid: 26507f248a46cbf4fa958167f580e2ce, type: 2}

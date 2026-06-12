@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 3
   displayName: z3
   maxHp: 100
-  speed: 0.2
+  speed: 0.15
   armor: 0
   magicResist: 30
   reward: 30

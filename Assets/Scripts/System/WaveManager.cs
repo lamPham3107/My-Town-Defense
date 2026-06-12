@@ -55,7 +55,8 @@ public class WaveManager : MonoBehaviour
 
     public void StartNextWave()
     {
-        if(_currentWaveIndex >= _mapData.waveConfigs.Length)
+        Debug.Log("Current Wave Index: " + _currentWaveIndex);
+        if (_currentWaveIndex >= _mapData.waveConfigs.Length)
         {
             return;
         }
@@ -67,7 +68,7 @@ public class WaveManager : MonoBehaviour
     {
         _currentWaveState = WaveState.InProgress;
         OnWaveStarted?.Invoke(_currentWaveIndex + 1, _mapData.waveConfigs.Length);
-        yield return new WaitForSeconds(config.delayBeforeWave);
+        //yield return new WaitForSeconds(config.delayBeforeWave);
 
         foreach ( var group in config.zombieGroups)
         {
