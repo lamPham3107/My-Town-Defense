@@ -30,6 +30,7 @@ public class ZombieController : MonoBehaviour
     [SerializeField] private GameObject _hpBarRoot;
     [SerializeField] private SpriteRenderer _hpBarFill;
     private Coroutine _hpBarCoroutine;
+    public Animator _zbAnimator;
 
     private float offsetX;
     private float offsetY;
@@ -111,8 +112,13 @@ public class ZombieController : MonoBehaviour
     {
         if (_isDead) return;
         _isDead = true;
-
+        _zbAnimator.SetTrigger("isDied");
         OnDeath?.Invoke(this);
+
+        //PoolManager.instance.ReturnZombie(this);
+    }
+    public void OnDieAnimationFinished()
+    {
         PoolManager.instance.ReturnZombie(this);
     }
     private void ReachEnd()

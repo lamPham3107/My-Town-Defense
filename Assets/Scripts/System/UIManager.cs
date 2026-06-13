@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image img_select_tower;
     public TextMeshProUGUI txt_gold;
     public TextMeshProUGUI txt_life;
+    public GameObject pn_Pause;
 
     [SerializeField] private GameObject archer_prefab;
     [SerializeField] private GameObject gunner_prefab;
@@ -19,6 +20,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject BtnStartWave;
     private Enable_Built_Tower_Img enable_built_tower_img;
+    
 
     private void Awake()
     {
@@ -111,6 +113,21 @@ public class UIManager : MonoBehaviour
     public void HideButtonStartWave()
     {
         BtnStartWave.SetActive(false);
+    }
+    public void OnClickPauseGame()
+    {
+        Time.timeScale = 0f;
+        pn_Pause.SetActive(true);
+    }
+    public void OnClickResumeGame()
+    {
+        Time.timeScale = 1f;
+        pn_Pause.SetActive(false);
+    }
+    public void OnCLickBackMenu()
+    {
+        Time.timeScale = 1f;
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 
 }

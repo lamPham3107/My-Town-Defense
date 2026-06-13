@@ -245,7 +245,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -996708249
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: aeed941b589960445a7e25578c7ba406, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -336,6 +336,7 @@ MonoBehaviour:
   _currentWaypointIndex: 0
   _hpBarRoot: {fileID: 540652042997775641}
   _hpBarFill: {fileID: 6224891898099163012}
+  _zbAnimator: {fileID: 453162466247738527}
 --- !u!95 &453162466247738527
 Animator:
   serializedVersion: 5
@@ -346,7 +347,7 @@ Animator:
   m_GameObject: {fileID: 6201492999794192796}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e5dd0971766c8eb4792484ca9fb545cc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 788e447043d7c6748aba79b201c13500, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
