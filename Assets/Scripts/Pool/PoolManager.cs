@@ -5,17 +5,12 @@ using UnityEngine;
 public class PoolManager : MonoBehaviour
 {
     public static PoolManager instance { get; private set; }
-
     [SerializeField] private ZombieController[] _zombiePrefab;
     [SerializeField] private int _zombiePoolSize = 10;
-    //[SerializeField] private int _projectTilePoolSize = 20;
-
     private Dictionary<string, ObjectPool<ZombieController>> _zombiePools = new();
     private Dictionary<string , ObjectPool<MonoBehaviour>> _projectTilePools = new();
-
     private Transform zombieParent;
     private Transform projectTileParent;
-
 
     private void Awake()
     {
@@ -81,7 +76,6 @@ public class PoolManager : MonoBehaviour
 
     public void ReturnProjectTile(MonoBehaviour projectTile)
     {
-        // xóa clone và trim để lấy key gốc
         string key = projectTile.name.Replace("(Clone)", "").Trim();
         _projectTilePools[key].ReturnToPool(projectTile);
     }

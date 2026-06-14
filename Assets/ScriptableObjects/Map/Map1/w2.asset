@@ -15,8 +15,8 @@ MonoBehaviour:
   waveIndex: 1
   zombieGroups:
   - ZombieData: {fileID: 11400000, guid: 7693407e87d9f8247aeb063f9f199ca4, type: 2}
-    count: 4
+    count: 7
     spawnDelay: 1
-  spawnDelay: 0
-  delayBeforeWave: 10
+  spawnDelay: 2
+  delayBeforeWave: 15
   waveReward: 50

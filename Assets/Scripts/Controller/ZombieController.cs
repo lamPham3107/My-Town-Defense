@@ -32,7 +32,6 @@ public class ZombieController : MonoBehaviour
     private Coroutine _hpBarCoroutine;
     public Animator _zbAnimator;
 
-    private float offsetX;
     private float offsetY;
 
     private bool _isInitialized = false;
@@ -53,7 +52,7 @@ public class ZombieController : MonoBehaviour
         _hpBarRoot.SetActive(false);
         _isInitialized = true;
         transform.position = new Vector3(
-        _waypoints[0].x + offsetX,
+        _waypoints[0].x ,
         _waypoints[0].y + offsetY,
         _waypoints[0].z
         );
@@ -63,7 +62,6 @@ public class ZombieController : MonoBehaviour
     {
         _isInitialized = false;
         _currentWaypointIndex = 0;
-        offsetX = UnityEngine.Random.Range(-1f, 1f);
         offsetY = UnityEngine.Random.Range(-0.5f, 0.5f);
 
     }
@@ -85,7 +83,7 @@ public class ZombieController : MonoBehaviour
         // Waypoint đầu tiên → áp cả 2 offset, giữ nguyên vị trí spawn
         if (_currentWaypointIndex == 0)
         {
-            Vector3 target0 = new Vector3(current.x + offsetX, current.y + offsetY, current.z);
+            Vector3 target0 = new Vector3(current.x , current.y + offsetY, current.z);
             transform.position = Vector3.MoveTowards(transform.position, target0, _currentSpeed * Time.deltaTime);
             if (Vector3.Distance(transform.position, target0) < 0.05f)
                 _currentWaypointIndex++;
@@ -99,7 +97,7 @@ public class ZombieController : MonoBehaviour
         if (isHorizontal)
             target = new Vector3(current.x, current.y + offsetY, current.z);
         else
-            target = new Vector3(current.x + offsetX, current.y, current.z);
+            target = new Vector3(current.x, current.y, current.z);
 
         transform.position = Vector3.MoveTowards(transform.position, target, _currentSpeed * Time.deltaTime);
 

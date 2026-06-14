@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6172820528701250178}
   - component: {fileID: 2434925326118771227}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3543322427814068557}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 1512935972141116998}
   - component: {fileID: 1766956164482621912}
   - component: {fileID: 4937467703043240821}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,9 +208,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7698959592473860902}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5be15b8a534389245b3ee68b324a69ea, type: 2}
+  m_Controller: {fileID: 9100000, guid: 247998c0c9998e74ca5f925efb77d700, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 2646362781275082042}
   - component: {fileID: 2599982551133293311}
   - component: {fileID: 7217397689684728932}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Tonwer_Bomber 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8427379664101575872}
   - component: {fileID: 6230977886099635953}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}

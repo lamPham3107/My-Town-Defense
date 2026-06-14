@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 982c25f8b6e6a924d8d39fd46590d194, type: 2}
+  m_Motion: {fileID: 7400000, guid: a5a4748128f5ee04187d63b64f7a515a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -48,7 +48,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: aae7e28b32b087a45b4b5bb76dfaa61f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9d477d450e811ac4ebf7b56c7a184a30, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -60,7 +60,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bomber
+  m_Name: 2_Bomber
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Shoot

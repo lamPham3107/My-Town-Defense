@@ -12,6 +12,11 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI txt_gold;
     public TextMeshProUGUI txt_life;
     public GameObject pn_Pause;
+    public GameObject pn_win;
+    public GameObject pn_lose;
+    public GameObject star_1;
+    public GameObject star_2;
+    public GameObject star_3;
 
     [SerializeField] private GameObject archer_prefab;
     [SerializeField] private GameObject gunner_prefab;
@@ -124,12 +129,49 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
         pn_Pause.SetActive(false);
     }
-    public void OnCLickBackMenu()
+    public void ShowPanelWin()
     {
-        Time.timeScale = 1f;
-        //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        pn_win.SetActive(true);
+    }
+    public void ShowPanelLose()
+    {
+        pn_lose.SetActive(true);
+    }
+    public void HidePanelLose()
+    {
+        pn_lose.SetActive(false);
+    }
+    public void HidePanelWin()
+    {
+        pn_win.SetActive(false);
+    }
+    public void ShowStar1()
+    {
+        star_1.SetActive(true);
+        star_2.SetActive(false);
+        star_3.SetActive(false);
+    }
+    public void ShowStar2()
+    {
+        star_1.SetActive(false);
+        star_2.SetActive(true);
+        star_3.SetActive(false);
+    }
+    public void ShowStar3()
+    {
+        star_1.SetActive(false);
+        star_2.SetActive(false);
+        star_3.SetActive(true);
     }
 
+    public void LoadScene(string sceneName)
+    {
+        Time.timeScale = 1f;
+        HidePanelLose();
+        HidePanelWin();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+
+    }
 }
 
 

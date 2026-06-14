@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3766620295619232442}
   - component: {fileID: 8018292460758193315}
   - component: {fileID: 7857961064368725592}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: gunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4626364830092166410}
   - component: {fileID: 7875843345699037664}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8723508730555296053}
   - component: {fileID: 5619756917047020476}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4762473801280485816}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 4611464479868812563}
   - component: {fileID: 8996393496960288164}
   - component: {fileID: -7790592278269233250}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Tonwer_Gunner 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

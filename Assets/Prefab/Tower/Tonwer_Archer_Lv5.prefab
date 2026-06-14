@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6804193474657337367}
   - component: {fileID: 2846608577642154921}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6491559656764375944}
   - component: {fileID: 2716377871126421222}
   - component: {fileID: 5474612651590995719}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Tonwer_Archer_Lv5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4171062574005153667}
   - component: {fileID: 4877800647391680418}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2534675039817290699}
   - component: {fileID: 2465791164396578642}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 7618200065251970186}
   - component: {fileID: 7613771655678109688}
   - component: {fileID: 1945508707795815893}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

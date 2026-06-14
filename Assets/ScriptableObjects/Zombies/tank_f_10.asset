@@ -18,7 +18,7 @@ MonoBehaviour:
   speed: 0.2
   armor: 0
   magicResist: 20
-  reward: 50
+  reward: 40
   livesOnReach: 1
   sprite: {fileID: 21300000, guid: f1334298aa7df4647a848f807c5eb7ca, type: 3}
   isSlow: 0

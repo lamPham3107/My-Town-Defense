@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   displayName: z2
-  maxHp: 60
+  maxHp: 50
   speed: 0.15
   armor: 10
   magicResist: 0
-  reward: 25
+  reward: 20
   livesOnReach: 1
   sprite: {fileID: 21300000, guid: 0eb7c3aba0a92054b8143dd0048a5f90, type: 3}
   isSlow: 0

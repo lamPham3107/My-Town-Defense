@@ -11,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
+  - Tower
   - Enemy
   - ProjectTile
-  - Tower
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3298259047
+    locked: 0
+  - name: UI
+    uniqueID: 4226182431
     locked: 0

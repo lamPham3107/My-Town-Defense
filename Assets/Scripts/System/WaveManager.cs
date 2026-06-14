@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Resources;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 public enum WaveState
 {
@@ -19,14 +20,18 @@ public class WaveManager : MonoBehaviour
     private int _aliveZombies = 0;
 
     public WaveState _currentWaveState { get; private set; } = WaveState.Pending;
+    public GameObject _wave_Bar;
+    public TextMeshProUGUI Txt_wave;
 
     public System.Action<int, int> OnWaveStarted;   // (currentWave, totalWaves)
     public System.Action<int> OnWaveCompleted; // (waveIndex)
     public System.Action OnNextWaveAvailable;
     public System.Action OnAllWavesCompleted;
+    private Coroutine _autoStartCoroutine;
 
     private Vector3[] _waypoints;
     private readonly Dictionary<string, ZombieController> _prefabLookup = new();
+    
 
     private void Awake()
     {
@@ -51,6 +56,9 @@ public class WaveManager : MonoBehaviour
         _mapData = mapData;
         _waypoints = path.GetWaypoints();
         ResourceManager.Instance.Init(_mapData.startingGold, _mapData.startingLives);
+
+        UpdateWaveText();
+        UIManager.Instance.ShowButtonStartWave();
     }
 
     public void StartNextWave()
@@ -60,6 +68,12 @@ public class WaveManager : MonoBehaviour
         {
             return;
         }
+        // Hủy auto-start nếu player tự bấm
+        if (_autoStartCoroutine != null)
+        {
+            StopCoroutine(_autoStartCoroutine);
+            _autoStartCoroutine = null;
+        }
 
         StartCoroutine(RunWave(_mapData.waveConfigs[_currentWaveIndex]));
     }
@@ -67,8 +81,10 @@ public class WaveManager : MonoBehaviour
     private IEnumerator RunWave(WaveConfig config)
     {
         _currentWaveState = WaveState.InProgress;
+        UIManager.Instance.HideButtonStartWave();
+        UpdateWaveText();
+        ShowWaveBar();  
         OnWaveStarted?.Invoke(_currentWaveIndex + 1, _mapData.waveConfigs.Length);
-        //yield return new WaitForSeconds(config.delayBeforeWave);
 
         foreach ( var group in config.zombieGroups)
         {
@@ -82,7 +98,9 @@ public class WaveManager : MonoBehaviour
             }
         }
         _currentWaveIndex++;
-        if(_currentWaveIndex < _mapData.waveConfigs.Length)
+        //_currentWaveState = WaveState.Completed;
+        //OnWaveCompleted?.Invoke(_currentWaveIndex - 1);
+        if (_currentWaveIndex < _mapData.waveConfigs.Length)
         {
             float waitTime = _mapData.waveConfigs[_currentWaveIndex].delayBeforeWave;
             Debug.Log($"Wave {_currentWaveIndex} completed. Next wave in {waitTime} seconds.");
@@ -92,6 +110,7 @@ public class WaveManager : MonoBehaviour
         {
             // Hết wave → chờ zombie cuối chết rồi kết thúc
             yield return new WaitUntil(() => _aliveZombies <= 0);
+            yield return new WaitForSeconds(1f);
             OnAllWavesCompleted?.Invoke();
         }
 
@@ -131,5 +150,26 @@ public class WaveManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         UIManager.Instance.ShowButtonStartWave();
+
+        // Auto start sau 15s (chỉ từ wave 2 trở đi)
+        _autoStartCoroutine = StartCoroutine(AutoStartAfterDelay(15f));
+    }
+    private IEnumerator AutoStartAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        StartNextWave();
+    }
+
+    private void UpdateWaveText()
+    {
+            Txt_wave.text = $"{_currentWaveIndex + 1} / {_mapData.waveConfigs.Length}";
+    }
+    private void HideWaveBar()
+    {
+        _wave_Bar.SetActive(false);
+    }
+    private void ShowWaveBar()
+    {
+        _wave_Bar.SetActive(true);
     }
 }

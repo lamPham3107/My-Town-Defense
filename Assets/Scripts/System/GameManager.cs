@@ -36,11 +36,25 @@ public class GameManager : MonoBehaviour
     private void HandleGameOver()
     {
         Time.timeScale = 0f;
+        UIManager.Instance.ShowPanelLose();
     }
 
     private void HandleVictory()
     {
         int stars = CalcStars(ResourceManager.Instance.Lives, _mapData.startingLives);
+        if(stars == 3)
+        {
+            UIManager.Instance.ShowStar3();
+        }
+        else if (stars == 2)
+        {
+            UIManager.Instance.ShowStar2();
+        }
+        else
+        {
+            UIManager.Instance.ShowStar1();
+        }
+        UIManager.Instance.ShowPanelWin();
         SaveProgress(stars);
         Time.timeScale = 0f;
     }
