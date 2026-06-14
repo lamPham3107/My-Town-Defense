@@ -85,8 +85,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3554515857198985542}
   - component: {fileID: -3937552160629621363}
+  - component: {fileID: 5997400697004060617}
   m_Layer: 5
-  m_Name: Btn_Level_01
+  m_Name: Btn_Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,6 +173,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5997400697004060617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489697675107749743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d4e983dd39b904689ea95a2ab8ae9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIndex: 0
+  _imgLock: {fileID: 2291374674125767425}
+  _imgUnlock: {fileID: 7370918971788495445}
+  _imgPlayed: {fileID: 4384820586863691806}
+  _txtNumber: {fileID: 1158092999640122847}
+  _star1: {fileID: 8987810386185979035}
+  _star2: {fileID: 1095632230003424404}
+  _star3: {fileID: 3996732925902447494}
+  _button: {fileID: -3937552160629621363}
 --- !u!1 &2291374674125767425
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3078605724825730824
 RectTransform:
   m_ObjectHideFlags: 0

@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.ShowStar1();
         }
         UIManager.Instance.ShowPanelWin();
-        SaveProgress(stars);
+        GameMaster.SaveLevelResult(int.Parse(_mapData.mapId), stars);
         Time.timeScale = 0f;
     }
 
@@ -67,12 +67,4 @@ public class GameManager : MonoBehaviour
         return 1;
     }
 
-    private void SaveProgress(int stars)
-    {
-        string mapId = _mapData.mapId;
-        int prev = PlayerPrefs.GetInt($"stars_{mapId}", 0);
-        if (stars > prev)
-            PlayerPrefs.SetInt($"stars_{mapId}", stars);
-        PlayerPrefs.Save();
-    }
 }
