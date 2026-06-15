@@ -32,9 +32,11 @@ public class ZombieController : MonoBehaviour
     private Coroutine _hpBarCoroutine;
     public Animator _zbAnimator;
 
+    private float offsetX;
     private float offsetY;
 
     private bool _isInitialized = false;
+    private bool _facingRight = true; // hướng mặc định
 
     private void Awake()
     {
@@ -52,16 +54,19 @@ public class ZombieController : MonoBehaviour
         _hpBarRoot.SetActive(false);
         _isInitialized = true;
         transform.position = new Vector3(
-        _waypoints[0].x ,
+        _waypoints[0].x + offsetX,
         _waypoints[0].y + offsetY,
         _waypoints[0].z
         );
+        _facingRight = true;          // ← reset hướng
+        _spriteRenderer.flipX = false; // ← reset flip
 
     }
     private void OnEnable()
     {
         _isInitialized = false;
         _currentWaypointIndex = 0;
+        offsetX = UnityEngine.Random.Range(-0.2f, 0.2f);
         offsetY = UnityEngine.Random.Range(-0.5f, 0.5f);
 
     }
@@ -69,6 +74,7 @@ public class ZombieController : MonoBehaviour
     {
         if (!_isInitialized) return;
         Move();
+        UpdateSortingOrder();
     }
     private void Move()
     {
@@ -80,11 +86,14 @@ public class ZombieController : MonoBehaviour
 
         Vector3 current = _waypoints[_currentWaypointIndex];
 
-        // Waypoint đầu tiên → áp cả 2 offset, giữ nguyên vị trí spawn
         if (_currentWaypointIndex == 0)
         {
-            Vector3 target0 = new Vector3(current.x , current.y + offsetY, current.z);
+            Vector3 target0 = new Vector3(current.x + offsetX, current.y + offsetY, current.z);
             transform.position = Vector3.MoveTowards(transform.position, target0, _currentSpeed * Time.deltaTime);
+
+            // Flip dùng waypoint gốc, không dùng target có offset
+            FlipSprite(current);
+
             if (Vector3.Distance(transform.position, target0) < 0.05f)
                 _currentWaypointIndex++;
             return;
@@ -95,9 +104,12 @@ public class ZombieController : MonoBehaviour
 
         Vector3 target;
         if (isHorizontal)
-            target = new Vector3(current.x, current.y + offsetY, current.z);
+            target = new Vector3(current.x + offsetX, current.y + offsetY, current.z);
         else
             target = new Vector3(current.x, current.y, current.z);
+
+        // Flip dùng waypoint gốc, không dùng target có offset
+        FlipSprite(current);
 
         transform.position = Vector3.MoveTowards(transform.position, target, _currentSpeed * Time.deltaTime);
 
@@ -105,6 +117,20 @@ public class ZombieController : MonoBehaviour
             _currentWaypointIndex++;
     }
 
+    private void FlipSprite(Vector3 waypointTarget)
+    {
+        // Tính hướng từ waypoint trước đến waypoint hiện tại
+        float dirX = waypointTarget.x - (_currentWaypointIndex > 0
+                     ? _waypoints[_currentWaypointIndex - 1].x
+                     : _waypoints[0].x);
+
+        if (Mathf.Abs(dirX) > 0.01f)
+        {
+            _facingRight = dirX > 0;
+            _spriteRenderer.flipX = !_facingRight;
+        }
+        // Đi dọc → giữ nguyên hướng cũ
+    }
 
     private void Die()
     {
@@ -163,4 +189,19 @@ public class ZombieController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         _hpBarRoot.SetActive(false);
     }
+
+    private void UpdateSortingOrder()
+    {
+        int order = Mathf.RoundToInt(-transform.position.y * 100);
+        _spriteRenderer.sortingOrder = order;
+        // HP bar hiện trên zombie
+        if (_hpBarFill != null)
+            _hpBarFill.sortingOrder = order + 2;
+
+        // Nếu hpBarRoot có SpriteRenderer
+        var hpBarSr = _hpBarRoot.GetComponent<SpriteRenderer>();
+        if (hpBarSr != null)
+            hpBarSr.sortingOrder = order + 1;
+    }
 }
+

@@ -29,7 +29,7 @@ public class WaveManager : MonoBehaviour
     public System.Action OnAllWavesCompleted;
     private Coroutine _autoStartCoroutine;
 
-    private Vector3[] _waypoints;
+    private Vector3[][] _allWayPoints;
     private readonly Dictionary<string, ZombieController> _prefabLookup = new();
     
 
@@ -51,10 +51,15 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    public void Init(MapData mapData , PathHolder path)
+    public void Init(MapData mapData , PathHolder[] paths)
     {
         _mapData = mapData;
-        _waypoints = path.GetWaypoints();
+        _allWayPoints = new Vector3[paths.Length][];
+        for (int i = 0; i < paths.Length; i++)
+        {
+            _allWayPoints[i] = paths[i].GetWaypoints();
+        }
+
         ResourceManager.Instance.Init(_mapData.startingGold, _mapData.startingLives);
 
         UpdateWaveText();
@@ -92,7 +97,7 @@ public class WaveManager : MonoBehaviour
             for (int i = 0; i < group.count; i++)
             {
                 Debug.Log("Spawning Zombie: " + group.ZombieData.id);
-                SpawnZombie(group.ZombieData);
+                SpawnZombie(group.ZombieData, group.pathIndex);
                 _aliveZombies++;
                 yield return new WaitForSeconds(config.spawnDelay);
             }
@@ -116,7 +121,7 @@ public class WaveManager : MonoBehaviour
 
     }
 
-    private void SpawnZombie(ZombieData data)
+    private void SpawnZombie(ZombieData data, int pathIndex)
     {
         if(!_prefabLookup.TryGetValue(data.id, out var prefab))
         {
@@ -124,9 +129,11 @@ public class WaveManager : MonoBehaviour
             _aliveZombies--;
             return;
         }
+        int idx = Mathf.Clamp(pathIndex, 0, _allWayPoints.Length - 1);
+        Vector3[] waypoints = _allWayPoints[idx];
 
-        var zombie = PoolManager.instance.GetZombie(prefab, _waypoints[0]);
-        zombie.Init(data, _waypoints);
+        var zombie = PoolManager.instance.GetZombie(prefab, waypoints[0]);
+        zombie.Init(data, waypoints);
         zombie.OnDeath += OnZombieDied;
         zombie.OnReachEnd += OnZombieReachedEnd;
     }

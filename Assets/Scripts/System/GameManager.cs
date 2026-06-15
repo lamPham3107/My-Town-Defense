@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     [SerializeField] private MapData _mapData;
-    [SerializeField] private PathHolder _pathHolder;
+    [SerializeField] private PathHolder[] _pathHolder;
 
     private void Awake()
     {

@@ -8,5 +8,5 @@ public class ZombieGroups
 {
     public ZombieData ZombieData;
     public int count;
-    public float spawnDelay;
+    public int pathIndex;
 }
