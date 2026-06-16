@@ -58,9 +58,11 @@ public class ZombieController : MonoBehaviour
         _waypoints[0].y + offsetY,
         _waypoints[0].z
         );
-        _facingRight = true;          // ← reset hướng
-        _spriteRenderer.flipX = false; // ← reset flip
 
+        _spriteRenderer.flipX = false;
+
+        if (_waypoints.Length > 1)
+            FlipSprite(_waypoints[0], _waypoints[1]);
     }
     private void OnEnable()
     {
@@ -88,50 +90,62 @@ public class ZombieController : MonoBehaviour
 
         if (_currentWaypointIndex == 0)
         {
-            Vector3 target0 = new Vector3(current.x + offsetX, current.y + offsetY, current.z);
-            transform.position = Vector3.MoveTowards(transform.position, target0, _currentSpeed * Time.deltaTime);
-
-            // Flip dùng waypoint gốc, không dùng target có offset
-            FlipSprite(current);
+            Vector3 target0 = new Vector3(current.x, current.y + offsetY, current.z);
+            transform.position = Vector3.MoveTowards(
+                transform.position, target0, _currentSpeed * Time.deltaTime);
 
             if (Vector3.Distance(transform.position, target0) < 0.05f)
+            {
                 _currentWaypointIndex++;
+                // Flip + animation khi đến waypoint tiếp theo
+                if (_currentWaypointIndex < _waypoints.Length)
+                    FlipSprite(_waypoints[_currentWaypointIndex - 1],
+                               _waypoints[_currentWaypointIndex]);
+            }
             return;
         }
 
         Vector3 prev = _waypoints[_currentWaypointIndex - 1];
         bool isHorizontal = Mathf.Abs(current.y - prev.y) < 0.01f;
 
-        Vector3 target;
-        if (isHorizontal)
-            target = new Vector3(current.x + offsetX, current.y + offsetY, current.z);
-        else
-            target = new Vector3(current.x, current.y, current.z);
+        Vector3 target = isHorizontal
+            ? new Vector3(current.x, current.y + offsetY, current.z)
+            : new Vector3(current.x, current.y, current.z);
 
-        // Flip dùng waypoint gốc, không dùng target có offset
-        FlipSprite(current);
-
-        transform.position = Vector3.MoveTowards(transform.position, target, _currentSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(
+            transform.position, target, _currentSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, target) < 0.05f)
-            _currentWaypointIndex++;
-    }
-
-    private void FlipSprite(Vector3 waypointTarget)
-    {
-        // Tính hướng từ waypoint trước đến waypoint hiện tại
-        float dirX = waypointTarget.x - (_currentWaypointIndex > 0
-                     ? _waypoints[_currentWaypointIndex - 1].x
-                     : _waypoints[0].x);
-
-        if (Mathf.Abs(dirX) > 0.01f)
         {
-            _facingRight = dirX > 0;
-            _spriteRenderer.flipX = !_facingRight;
+            _currentWaypointIndex++;
+            // Flip + animation khi đến waypoint tiếp theo
+            if (_currentWaypointIndex < _waypoints.Length)
+                FlipSprite(_waypoints[_currentWaypointIndex - 1],
+                           _waypoints[_currentWaypointIndex]);
         }
-        // Đi dọc → giữ nguyên hướng cũ
     }
+    private void FlipSprite(Vector3 from, Vector3 to)
+    {
+        float dirX = to.x - from.x;
+        float dirY = to.y - from.y;
 
+        if (Mathf.Abs(dirX) > Mathf.Abs(dirY))
+        {
+            // Đi NGANG → isSide
+            _spriteRenderer.flipX = dirX < 0; // đi trái → flip
+            _zbAnimator.SetTrigger("isSide");
+        }
+        else
+        {
+            // Đi DỌC
+            _spriteRenderer.flipX = false; // reset flip khi đi dọc
+
+            if (dirY < 0)
+                _zbAnimator.SetTrigger("isFront"); // đi xuống
+            else
+                _zbAnimator.SetTrigger("isBack");  // đi lên
+        }
+    }
     private void Die()
     {
         if (_isDead) return;
