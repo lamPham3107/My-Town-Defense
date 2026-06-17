@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a4c62d0f661824cbb57c1899a613f7, type: 3}
   m_Name: spTank_4
   m_EditorClassIdentifier: 
-  id: 3
+  id: 4
   displayName: z4
-  maxHp: 400
-  speed: 0.1
+  maxHp: 450
+  speed: 0.15
   armor: 0
   magicResist: 0
   reward: 50

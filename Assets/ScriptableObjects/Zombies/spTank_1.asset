@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a4c62d0f661824cbb57c1899a613f7, type: 3}
   m_Name: spTank_1
   m_EditorClassIdentifier: 
-  id: 7
+  id: 1
   displayName: z7
-  maxHp: 400
-  speed: 0.15
-  armor: 20
+  maxHp: 300
+  speed: 0.2
+  armor: 0
   magicResist: 0
   reward: 25
   livesOnReach: 3

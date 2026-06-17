@@ -162,6 +162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Btn_Level_05
       objectReference: {fileID: 0}
+    - target: {fileID: 2291374674125767425, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3554515857198985542, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -363,6 +367,10 @@ PrefabInstance:
     - target: {fileID: 1489697675107749743, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
       propertyPath: m_Name
       value: Btn_Level_10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291374674125767425, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3554515857198985542, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
       propertyPath: m_Pivot.x
@@ -769,6 +777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Btn_Level_06
       objectReference: {fileID: 0}
+    - target: {fileID: 2291374674125767425, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3554515857198985542, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1014,6 +1026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Btn_Level_07
       objectReference: {fileID: 0}
+    - target: {fileID: 2291374674125767425, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3554515857198985542, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1178,6 +1194,10 @@ PrefabInstance:
     - target: {fileID: 1489697675107749743, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
       propertyPath: m_Name
       value: Btn_Level_08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291374674125767425, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3554515857198985542, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
       propertyPath: m_Pivot.x
@@ -2133,6 +2153,10 @@ PrefabInstance:
     - target: {fileID: 1489697675107749743, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
       propertyPath: m_Name
       value: Btn_Level_09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291374674125767425, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3554515857198985542, guid: fa68cd61d4b462c42b57fa3720a8efbc, type: 3}
       propertyPath: m_Pivot.x

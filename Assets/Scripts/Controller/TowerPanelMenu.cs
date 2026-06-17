@@ -25,7 +25,7 @@ public class TowerPanelMenu : MonoBehaviour
         currentTower = tower;
 
         // Convert world position → screen position → UI position
-        Vector3 worldPos = tower.transform.position + Vector3.up * 1.5f;
+        Vector3 worldPos = tower.transform.position + Vector3.up * 0.5f;
         Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(

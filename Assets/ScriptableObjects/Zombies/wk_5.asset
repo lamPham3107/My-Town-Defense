@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a4c62d0f661824cbb57c1899a613f7, type: 3}
   m_Name: wk_5
   m_EditorClassIdentifier: 
-  id: 1
+  id: 5
   displayName: z1
   maxHp: 20
-  speed: 0.2
+  speed: 0.25
   armor: 0
   magicResist: 0
   reward: 15

@@ -473,7 +473,7 @@ Transform:
   m_GameObject: {fileID: 92819317}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.47, y: -0.03, z: 0}
+  m_LocalPosition: {x: -9.59, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4700,7 +4700,7 @@ Transform:
   m_GameObject: {fileID: 1046751492}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.47, y: -0.03, z: 0}
+  m_LocalPosition: {x: -9.7, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6619,7 +6619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -177.70001, y: -22.5}
+  m_AnchoredPosition: {x: -177.70007, y: -22.5}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1324875315
@@ -7363,14 +7363,17 @@ MonoBehaviour:
   mapId: 1
   mapName: level_01
   sceneName: Level_1
-  startingGold: 300
-  startingLives: 10
+  startingGold: 420
+  startingLives: 15
   waveConfigs:
-  - {fileID: 11400000, guid: 2cfa67663d81517408bd2ca3ae9c2386, type: 2}
-  - {fileID: 11400000, guid: 4290b7fa52fe3fd4e8e124e14112a83d, type: 2}
-  - {fileID: 11400000, guid: d1d7c352e5a538b429b102052e4fd0fd, type: 2}
-  - {fileID: 11400000, guid: 74c58ab48f7c92e41a2987bf770d6497, type: 2}
-  - {fileID: 11400000, guid: 9be750b4a8b766a42abe3540689a8589, type: 2}
+  - {fileID: 11400000, guid: 9a3647e6daed38b4b848c6c7ec8ef2ad, type: 2}
+  - {fileID: 11400000, guid: b6de5b70e0806174ea4c8ed750d70bb5, type: 2}
+  - {fileID: 11400000, guid: 129dbfa9cd56cba4f8d201b615073b91, type: 2}
+  - {fileID: 11400000, guid: 2bbf0681af761404f96b00773d219267, type: 2}
+  - {fileID: 11400000, guid: f5b71ec361359f54598e1ca34a1e8382, type: 2}
+  - {fileID: 11400000, guid: 1675b0a5115b00a409386e90a0b0e450, type: 2}
+  - {fileID: 11400000, guid: bf3cd71058201fd4bbbdacc2f4174f4c, type: 2}
+  - {fileID: 11400000, guid: e516baeb70e57ca41be99169fb3a77fe, type: 2}
 --- !u!114 &1487275645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7388,6 +7391,9 @@ MonoBehaviour:
   - {fileID: 5043543172639104426, guid: 90df39acce332f14397db48752935e0e, type: 3}
   - {fileID: 5043543172639104426, guid: 0498d32df306be54fbb9e86c38b2eb06, type: 3}
   - {fileID: 5043543172639104426, guid: 3a347c95d8508f8459a7610aacb6b39d, type: 3}
+  - {fileID: 6283555929115219231, guid: 224b0146ca31c7846afb24263110d195, type: 3}
+  - {fileID: 5043543172639104426, guid: 44a302b2e8331ec4bb83e3839a7a3d28, type: 3}
+  - {fileID: 5043543172639104426, guid: 223c190a415755b45a1edd5a8c545b3c, type: 3}
   _wave_Bar: {fileID: 703069430}
   Txt_wave: {fileID: 1880027570}
 --- !u!1 &1491534447
@@ -8125,10 +8131,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 833522692}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -36}
-  m_SizeDelta: {x: 87, y: 83}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -193, y: -74}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1729474883
 MonoBehaviour:

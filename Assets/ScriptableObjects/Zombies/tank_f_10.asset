@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a4c62d0f661824cbb57c1899a613f7, type: 3}
   m_Name: tank_f_10
   m_EditorClassIdentifier: 
-  id: 8
+  id: 10
   displayName: z8
   maxHp: 120
-  speed: 0.2
+  speed: 0.25
   armor: 0
   magicResist: 20
   reward: 40

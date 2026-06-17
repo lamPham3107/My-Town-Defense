@@ -1856,7 +1856,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 470595752}
-  - component: {fileID: 470595753}
   m_Layer: 0
   m_Name: Waypoints
   m_TagString: Untagged
@@ -1880,18 +1879,6 @@ Transform:
   - {fileID: 60476383}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &470595753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470595750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78f8d84a76ac0cb4a8b9ae362e663435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &512274486
 GameObject:
   m_ObjectHideFlags: 0
@@ -6456,14 +6443,13 @@ MonoBehaviour:
   mapId: 1
   mapName: level_01
   sceneName: Level_1
-  startingGold: 300
+  startingGold: 200
   startingLives: 10
   waveConfigs:
-  - {fileID: 11400000, guid: 2cfa67663d81517408bd2ca3ae9c2386, type: 2}
-  - {fileID: 11400000, guid: 4290b7fa52fe3fd4e8e124e14112a83d, type: 2}
-  - {fileID: 11400000, guid: d1d7c352e5a538b429b102052e4fd0fd, type: 2}
-  - {fileID: 11400000, guid: 74c58ab48f7c92e41a2987bf770d6497, type: 2}
-  - {fileID: 11400000, guid: 9be750b4a8b766a42abe3540689a8589, type: 2}
+  - {fileID: 11400000, guid: e7f0062b5dd163242b966ffb6bb83f58, type: 2}
+  - {fileID: 11400000, guid: 8869bfd78c7b67046ad2a61c418ae199, type: 2}
+  - {fileID: 11400000, guid: ce530b2db10c8cd4ca39830678ff9740, type: 2}
+  - {fileID: 11400000, guid: 6a13b8f27f5fcc94aafa54f07a5d5594, type: 2}
 --- !u!114 &1487275645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6480,7 +6466,6 @@ MonoBehaviour:
   _zombiePrefabMap:
   - {fileID: 5043543172639104426, guid: 90df39acce332f14397db48752935e0e, type: 3}
   - {fileID: 5043543172639104426, guid: 0498d32df306be54fbb9e86c38b2eb06, type: 3}
-  - {fileID: 5043543172639104426, guid: 3a347c95d8508f8459a7610aacb6b39d, type: 3}
   _wave_Bar: {fileID: 703069430}
   Txt_wave: {fileID: 1880027570}
 --- !u!1 &1491534447

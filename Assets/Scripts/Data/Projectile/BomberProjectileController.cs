@@ -2,8 +2,8 @@
 
 public class BomberProjectileController : MonoBehaviour, IProjectile
 {
-    [SerializeField] private float _arcHeight = 5f;
-    [SerializeField] private float _speed = 1f;
+    private float _arcHeight = 2.5f;
+    private float _speed = 1f;
 
     private TowerController _owner;
     private Vector3 _startPos;

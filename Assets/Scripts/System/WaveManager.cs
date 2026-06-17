@@ -31,7 +31,9 @@ public class WaveManager : MonoBehaviour
 
     private Vector3[][] _allWayPoints;
     private readonly Dictionary<string, ZombieController> _prefabLookup = new();
-    
+
+    private float _autoStartTimer = 0f;
+    private const float AUTO_START_DELAY = 15f;
 
     private void Awake()
     {
@@ -78,9 +80,26 @@ public class WaveManager : MonoBehaviour
         {
             StopCoroutine(_autoStartCoroutine);
             _autoStartCoroutine = null;
+
+            if (_autoStartTimer > 0f && _currentWaveIndex > 0)
+            {
+                int maxWaveReward = _mapData.waveConfigs[_currentWaveIndex].waveReward;
+                int bonus = CalcEarlyBonus(maxWaveReward, _autoStartTimer);
+
+                if (bonus > 0)
+                {
+                    ResourceManager.Instance.AddGold(bonus);
+                }
+            }
         }
 
         StartCoroutine(RunWave(_mapData.waveConfigs[_currentWaveIndex]));
+    }
+
+    private int CalcEarlyBonus(int waveReward, float timeRemaining)
+    {
+        float ratio = timeRemaining / AUTO_START_DELAY; // 0.0 → 1.0
+        return Mathf.RoundToInt(waveReward * ratio);
     }
 
     private IEnumerator RunWave(WaveConfig config)
@@ -159,6 +178,7 @@ public class WaveManager : MonoBehaviour
         UIManager.Instance.ShowButtonStartWave();
 
         // Auto start sau 15s (chỉ từ wave 2 trở đi)
+        _autoStartTimer = AUTO_START_DELAY;
         _autoStartCoroutine = StartCoroutine(AutoStartAfterDelay(15f));
     }
     private IEnumerator AutoStartAfterDelay(float delay)

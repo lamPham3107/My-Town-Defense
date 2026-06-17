@@ -21,7 +21,7 @@ MonoBehaviour:
   nextLevel: {fileID: 0}
   damage: 15
   attackSpeed: 1.3
-  range: 3.5
+  range: 4
   damageType: 0
   splashRadius: 0
   statusEffect: 2

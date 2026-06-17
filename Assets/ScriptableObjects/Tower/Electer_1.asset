@@ -20,8 +20,8 @@ MonoBehaviour:
   sellValue: 100
   nextLevel: {fileID: 11400000, guid: a2c1c9a1a01235b4ab6351556ffe6c26, type: 2}
   damage: 5
-  attackSpeed: 0.8
-  range: 3.5
+  attackSpeed: 0.5
+  range: 2.5
   damageType: 1
   splashRadius: 0
   statusEffect: 2

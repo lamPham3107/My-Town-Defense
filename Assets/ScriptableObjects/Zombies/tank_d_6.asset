@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 6
   displayName: z6
   maxHp: 120
-  speed: 0.15
+  speed: 0.2
   armor: 20
   magicResist: 0
   reward: 35

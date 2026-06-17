@@ -19,9 +19,9 @@ MonoBehaviour:
   upgradeCost: 0
   sellValue: 400
   nextLevel: {fileID: 0}
-  damage: 20
-  attackSpeed: 1
-  range: 4
+  damage: 25
+  attackSpeed: 0.7
+  range: 3.5
   damageType: 1
   splashRadius: 0
   statusEffect: 2

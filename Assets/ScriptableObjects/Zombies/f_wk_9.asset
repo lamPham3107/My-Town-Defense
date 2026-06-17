@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 9
   displayName: z9
   maxHp: 20
-  speed: 0.2
+  speed: 0.25
   armor: 0
   magicResist: 0
   reward: 10
