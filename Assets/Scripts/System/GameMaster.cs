@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameMaster : MonoBehaviour
@@ -82,10 +83,14 @@ public class GameMaster : MonoBehaviour
         UnlockLevel(level + 1);
     }
 
-    public static void ResetAll()
-    {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
-        Debug.Log("All data cleared!");
-    }
+    #if UNITY_EDITOR
+        [MenuItem("Tools/Reset All Data")]
+        public static void ResetAll()
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+            Debug.Log("All data cleared!");
+        }
+    #endif
+
 }

@@ -8,9 +8,9 @@ public class SkillBomb : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
 {
     public static SkillBomb Instance;
     [Header("Config")]
-    [SerializeField] private float _radius = 0.5f;
-    [SerializeField] private float _damage = 10f;
-    [SerializeField] private float _cooldownTime = 90f;
+    private float _radius = 1f;
+    private float _damage = 100f;
+    private float _cooldownTime = 120f;
 
     [Header("References")]
     [SerializeField] private GameObject _crosshairPrefab;
