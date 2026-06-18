@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   displayName: z4
-  maxHp: 450
+  maxHp: 650
   speed: 0.15
-  armor: 0
-  magicResist: 0
+  armor: 10
+  magicResist: 10
   reward: 50
   livesOnReach: 3
   sprite: {fileID: 21300000, guid: 6449521568808a2428ce2b5b7324a73a, type: 3}

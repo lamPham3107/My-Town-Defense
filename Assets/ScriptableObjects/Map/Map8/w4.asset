@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4324a195139490a4f96c0784349c86ad, type: 3}
+  m_Name: w4
+  m_EditorClassIdentifier: 
+  waveIndex: 1
+  zombieGroups:
+  - ZombieData: {fileID: 11400000, guid: 87152a88b2736b743815e1c504ebaff8, type: 2}
+    count: 10
+    pathIndex: 1
+  - ZombieData: {fileID: 11400000, guid: 6a99be0e87e38d843a2af7a008eeeef8, type: 2}
+    count: 10
+    pathIndex: 1
+  - ZombieData: {fileID: 11400000, guid: 8a081a4b564011745a4ac3e323499ae6, type: 2}
+    count: 3
+    pathIndex: 1
+  spawnDelay: 2
+  delayBeforeWave: 15
+  waveReward: 40

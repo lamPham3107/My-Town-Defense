@@ -20,7 +20,7 @@ MonoBehaviour:
   sellValue: 400
   nextLevel: {fileID: 0}
   damage: 25
-  attackSpeed: 0.7
+  attackSpeed: 1
   range: 3.5
   damageType: 1
   splashRadius: 0

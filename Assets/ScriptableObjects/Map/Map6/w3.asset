@@ -18,7 +18,7 @@ MonoBehaviour:
     count: 1
     pathIndex: 0
   - ZombieData: {fileID: 11400000, guid: 23bb4f43e65f78e4a8b3e4dc856a4ab1, type: 2}
-    count: 2
+    count: 1
     pathIndex: 1
   - ZombieData: {fileID: 11400000, guid: 6a99be0e87e38d843a2af7a008eeeef8, type: 2}
     count: 10

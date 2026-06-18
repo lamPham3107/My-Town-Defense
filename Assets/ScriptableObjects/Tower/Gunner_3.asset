@@ -19,7 +19,7 @@ MonoBehaviour:
   upgradeCost: 0
   sellValue: 300
   nextLevel: {fileID: 0}
-  damage: 20
+  damage: 25
   attackSpeed: 1
   range: 5
   damageType: 0

@@ -28,7 +28,7 @@ MonoBehaviour:
     pathIndex: 1
   - ZombieData: {fileID: 11400000, guid: 9db18c5868697a34bb045c1a82acaead, type: 2}
     count: 10
-    pathIndex: 10
+    pathIndex: 0
   spawnDelay: 2.5
   delayBeforeWave: 30
   waveReward: 100

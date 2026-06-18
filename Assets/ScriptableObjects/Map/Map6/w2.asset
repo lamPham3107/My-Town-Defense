@@ -18,13 +18,16 @@ MonoBehaviour:
     count: 1
     pathIndex: 0
   - ZombieData: {fileID: 11400000, guid: 23bb4f43e65f78e4a8b3e4dc856a4ab1, type: 2}
-    count: 7
+    count: 2
     pathIndex: 1
   - ZombieData: {fileID: 11400000, guid: 43f242fa4d79cda448c5dbf244d826f9, type: 2}
     count: 7
     pathIndex: 1
   - ZombieData: {fileID: 11400000, guid: 7693407e87d9f8247aeb063f9f199ca4, type: 2}
     count: 7
+    pathIndex: 0
+  - ZombieData: {fileID: 11400000, guid: 9db18c5868697a34bb045c1a82acaead, type: 2}
+    count: 4
     pathIndex: 0
   spawnDelay: 2
   delayBeforeWave: 20
