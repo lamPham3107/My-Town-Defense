@@ -158,6 +158,7 @@ public class TowerController : MonoBehaviour
 
     public void Sell()
     {
+        GameAudioSource.Instance.PlaySFX(GameAudioSource.Instance.sfxSellTower);
         ResourceManager.Instance.AddGold(GetSellValue());
         TowerPanelMenu.Instance.Hide();
         Destroy(gameObject);

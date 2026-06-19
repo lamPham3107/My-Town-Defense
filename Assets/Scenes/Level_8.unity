@@ -263,7 +263,7 @@ Transform:
   m_GameObject: {fileID: 41541857}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.96, y: 0, z: -4}
+  m_LocalPosition: {x: -4.39, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -315,7 +315,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 7, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -413,7 +413,7 @@ Transform:
   m_GameObject: {fileID: 81875855}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.392, y: -2.86, z: -4}
+  m_LocalPosition: {x: 4.392, y: -3.31, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -465,7 +465,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4264,10 +4264,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1729474882}
   - {fileID: 590377592}
   - {fileID: 1606463422}
   - {fileID: 875687517}
-  - {fileID: 1729474882}
   - {fileID: 863766662}
   - {fileID: 1324875314}
   - {fileID: 377247049}
@@ -5115,7 +5115,7 @@ Transform:
   m_GameObject: {fileID: 1046751492}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.47, y: -0.03, z: 0}
+  m_LocalPosition: {x: -10.93, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9918,6 +9918,14 @@ PrefabInstance:
     - target: {fileID: 4129748126180238838, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
       propertyPath: m_Name
       value: Btn_StartWave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070857705186418731, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 658592958}
+    - target: {fileID: 5070857705186418731, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartWave
       objectReference: {fileID: 0}
     - target: {fileID: 8647763132451015920, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
       propertyPath: m_Pivot.x

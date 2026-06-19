@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         WaveManager.instance.Init(_mapData, _pathHolder);
+        GameAudioSource.Instance.PlayBGM(GameAudioSource.Instance.bgmGamePlay);
         ResourceManager.Instance.OnGameOver += HandleGameOver;
         WaveManager.instance.OnAllWavesCompleted += HandleVictory;
     }

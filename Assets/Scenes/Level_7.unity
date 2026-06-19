@@ -624,7 +624,7 @@ Transform:
   m_GameObject: {fileID: 92819317}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.07, y: -2.96, z: 0}
+  m_LocalPosition: {x: 11.19, y: -2.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -920,7 +920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8635308471390755139, guid: 37fa022259c0622418c493105b809526, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.46
+      value: 4.18
       objectReference: {fileID: 0}
     - target: {fileID: 8635308471390755139, guid: 37fa022259c0622418c493105b809526, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4235,7 +4235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8635308471390755139, guid: 37fa022259c0622418c493105b809526, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.3
+      value: 22.71
       objectReference: {fileID: 0}
     - target: {fileID: 8635308471390755139, guid: 37fa022259c0622418c493105b809526, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4377,10 +4377,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1729474882}
   - {fileID: 590377592}
   - {fileID: 1606463422}
   - {fileID: 875687517}
-  - {fileID: 1729474882}
   - {fileID: 863766662}
   - {fileID: 1324875314}
   - {fileID: 377247049}
@@ -5144,7 +5144,7 @@ Transform:
   m_GameObject: {fileID: 1046751492}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.47, y: -2.93, z: 0}
+  m_LocalPosition: {x: -11.3, y: -2.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8646,6 +8646,14 @@ PrefabInstance:
     - target: {fileID: 4129748126180238838, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
       propertyPath: m_Name
       value: Btn_StartWave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070857705186418731, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 658592958}
+    - target: {fileID: 5070857705186418731, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartWave
       objectReference: {fileID: 0}
     - target: {fileID: 8647763132451015920, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
       propertyPath: m_Pivot.x

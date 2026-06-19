@@ -3465,10 +3465,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1729474882}
   - {fileID: 590377592}
   - {fileID: 1606463422}
   - {fileID: 875687517}
-  - {fileID: 1729474882}
   - {fileID: 863766662}
   - {fileID: 1324875314}
   - {fileID: 377247049}
@@ -7544,6 +7544,14 @@ PrefabInstance:
     - target: {fileID: 4129748126180238838, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
       propertyPath: m_Name
       value: Btn_StartWave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070857705186418731, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 658592958}
+    - target: {fileID: 5070857705186418731, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartWave
       objectReference: {fileID: 0}
     - target: {fileID: 8647763132451015920, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
       propertyPath: m_Pivot.x

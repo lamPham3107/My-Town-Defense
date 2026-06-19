@@ -70,6 +70,7 @@ public class UIManager : MonoBehaviour
         }
         Vector2 buildPos = GetBuildPos();
         Transform parent = Enable_Built_Tower_Img.current_Base_Selected.transform;
+        GameAudioSource.Instance.PlaySFX(GameAudioSource.Instance.sfxPlaceTower);
         Instantiate(archer_prefab, buildPos, Quaternion.identity,parent);
     }
     public void Build_Gunner(int cost)
@@ -81,6 +82,7 @@ public class UIManager : MonoBehaviour
         }
         Vector2 buildPos = GetBuildPos();
         Transform parent = Enable_Built_Tower_Img.current_Base_Selected.transform;
+        GameAudioSource.Instance.PlaySFX(GameAudioSource.Instance.sfxPlaceTower);
         Instantiate(gunner_prefab, buildPos, Quaternion.identity, parent);
     }
     public void Build_Bomber(int cost)
@@ -92,6 +94,7 @@ public class UIManager : MonoBehaviour
         }
         Vector2 buildPos = GetBuildPos();
         Transform parent = Enable_Built_Tower_Img.current_Base_Selected.transform;
+        GameAudioSource.Instance.PlaySFX(GameAudioSource.Instance.sfxPlaceTower);
         Instantiate(bomber_prefab, buildPos, Quaternion.identity, parent);
     }
     public void Build_Electer(int cost)
@@ -103,6 +106,7 @@ public class UIManager : MonoBehaviour
         }
         Vector2 buildPos = GetBuildPos();
         Transform parent = Enable_Built_Tower_Img.current_Base_Selected.transform;
+        GameAudioSource.Instance.PlaySFX(GameAudioSource.Instance.sfxPlaceTower);
         Instantiate(electer_prefab, buildPos, Quaternion.identity, parent);
     }
 
@@ -122,19 +126,23 @@ public class UIManager : MonoBehaviour
     public void OnClickPauseGame()
     {
         Time.timeScale = 0f;
+        GameAudioSource.Instance.PlaySFX(GameAudioSource.Instance.sfxBtnClick);
         pn_Pause.SetActive(true);
     }
     public void OnClickResumeGame()
     {
         Time.timeScale = 1f;
+        GameAudioSource.Instance.PlaySFX(GameAudioSource.Instance.sfxBtnClick);
         pn_Pause.SetActive(false);
     }
     public void ShowPanelWin()
     {
+        GameAudioSource.Instance.PlaySFX(GameAudioSource.Instance.sfxVictory);
         pn_win.SetActive(true);
     }
     public void ShowPanelLose()
     {
+        GameAudioSource.Instance.PlaySFX(GameAudioSource.Instance.sfxGameOver);
         pn_lose.SetActive(true);
     }
     public void HidePanelLose()

@@ -6,8 +6,8 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster instance;
-    private int settingSound;
-    private int settingMusic;
+    private float settingSound;
+    private float settingMusic;
 
     private void Awake()
     {
@@ -25,28 +25,29 @@ public class GameMaster : MonoBehaviour
 
     private void LoadData()
     {
-        settingSound = PlayerPrefs.GetInt("setting_sound", 1);
-        settingMusic = PlayerPrefs.GetInt("setting_music", 1);
+        settingSound = PlayerPrefs.GetFloat("setting_sound", 1f);
+        settingMusic = PlayerPrefs.GetFloat("setting_music", 1f);
     }
 
-    public static int SettingSound
+    public static float SettingSound
     {
         get => instance.settingSound;
         set
         {
             instance.settingSound = value;
-            PlayerPrefs.SetInt("setting_sound", value);
+            PlayerPrefs.SetFloat("setting_sound", value);
             PlayerPrefs.Save();
+
         }
     }
 
-    public static int SettingMusic
+    public static float SettingMusic
     {
         get => instance.settingMusic;
         set
         {
             instance.settingMusic = value;
-            PlayerPrefs.SetInt("setting_music", value);
+            PlayerPrefs.SetFloat("setting_music", value);
             PlayerPrefs.Save();
         }
     }

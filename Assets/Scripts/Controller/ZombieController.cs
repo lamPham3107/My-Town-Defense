@@ -153,8 +153,7 @@ public class ZombieController : MonoBehaviour
         _isDead = true;
         _zbAnimator.SetTrigger("isDied");
         OnDeath?.Invoke(this);
-
-        //PoolManager.instance.ReturnZombie(this);
+        GameAudioSource.Instance.PlaySFX(GameAudioSource.Instance.sfxZombieDie);
     }
     public void OnDieAnimationFinished()
     {

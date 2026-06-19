@@ -2571,6 +2571,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Btn_StartWave
       objectReference: {fileID: 0}
+    - target: {fileID: 5070857705186418731, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 658592958}
+    - target: {fileID: 5070857705186418731, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartWave
+      objectReference: {fileID: 0}
     - target: {fileID: 8647763132451015920, guid: 52d4cd5f206e3a746bfe17287115b687, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
