@@ -21,6 +21,7 @@ public class GameMaster : MonoBehaviour
             Destroy(gameObject);
         }
         LoadData();
+        Application.targetFrameRate = 60;
     }
 
     private void LoadData()
