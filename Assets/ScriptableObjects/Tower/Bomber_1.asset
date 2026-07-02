@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Bomber Lv1
   towerPrefab: {fileID: 8562866265339763651, guid: a9c2ef7f134f71a4fbc6766e7ddb6042, type: 3}
   buildCost: 200
-  upgradeCost: 300
+  upgradeCost: 325
   sellValue: 150
   nextLevel: {fileID: 11400000, guid: c02e7884c3042b342a2a3a4e83e16d67, type: 2}
   damage: 6
@@ -24,6 +24,5 @@ MonoBehaviour:
   range: 2.5
   damageType: 0
   splashRadius: 1
-  statusEffect: 2
   targetPriority: 4
   projectilePrefab: {fileID: 4986838576825971874, guid: 98056079586aa2944846c8c3eecd9e53, type: 3}

@@ -33,7 +33,6 @@ public class TowerController : MonoBehaviour
         if (_currentTarget == null || _currentTarget._isDead  
             || Vector3.Distance(transform.position,_currentTarget.transform.position) > Range)
         {
-            Debug.Log("Finding new target...");
             _currentTarget = FindTaget();
         }
         if(_currentTarget == null)

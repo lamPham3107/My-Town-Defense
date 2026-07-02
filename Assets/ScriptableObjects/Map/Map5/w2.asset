@@ -25,4 +25,4 @@ MonoBehaviour:
     pathIndex: 1
   spawnDelay: 3
   delayBeforeWave: 15
-  waveReward: 60
+  waveReward: 40

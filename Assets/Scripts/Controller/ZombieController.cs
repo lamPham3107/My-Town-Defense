@@ -87,35 +87,9 @@ public class ZombieController : MonoBehaviour
         }
 
         Vector3 current = _waypoints[_currentWaypointIndex];
-
-        if (_currentWaypointIndex == 0)
-        {
-            Vector3 target0 = new Vector3(current.x + offsetX, current.y + offsetY, current.z);
-            transform.position = Vector3.MoveTowards(
-                transform.position, target0, _currentSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, target0) < 0.05f)
-            {
-                _currentWaypointIndex++;
-                // Flip + animation khi đến waypoint tiếp theo
-                if (_currentWaypointIndex < _waypoints.Length)
-                    FlipSprite(_waypoints[_currentWaypointIndex - 1],
-                               _waypoints[_currentWaypointIndex]);
-            }
-            return;
-        }
-
-        Vector3 prev = _waypoints[_currentWaypointIndex - 1];
-        bool isHorizontal = Mathf.Abs(current.y - prev.y) < 0.01f;
-
-        //Vector3 target = isHorizontal
-        //    ? new Vector3(current.x, current.y + offsetY, current.z)
-        //    : new Vector3(current.x, current.y, current.z);
         Vector3 target = new Vector3(current.x + offsetX, current.y + offsetY, current.z);
-
         transform.position = Vector3.MoveTowards(
             transform.position, target, _currentSpeed * Time.deltaTime);
-
         if (Vector3.Distance(transform.position, target) < 0.05f)
         {
             _currentWaypointIndex++;

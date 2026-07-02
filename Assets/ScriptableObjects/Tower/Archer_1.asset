@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Archer Lv 1
   towerPrefab: {fileID: 3639336495051711514, guid: e1e6de4c23030714f959e2e5bc277d9a, type: 3}
   buildCost: 100
-  upgradeCost: 150
+  upgradeCost: 175
   sellValue: 75
   nextLevel: {fileID: 11400000, guid: a357e336fc939f4428d698712f628a6b, type: 2}
   damage: 3
@@ -24,6 +24,5 @@ MonoBehaviour:
   range: 2.8
   damageType: 0
   splashRadius: 0
-  statusEffect: 2
   targetPriority: 4
   projectilePrefab: {fileID: 3868536889273034309, guid: 63c5162a4ebf9e44b9021a9417ad621f, type: 3}

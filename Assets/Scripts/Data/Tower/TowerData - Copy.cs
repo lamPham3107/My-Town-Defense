@@ -26,7 +26,6 @@ public class TowerData : ScriptableObject
 
     [Header("Special")]
     public float splashRadius; // 0 = single target
-    public EffectType statusEffect;
 
     [Header("Targeting")]
     public TargetPriority targetPriority;

@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Gunner Lv1
   towerPrefab: {fileID: 8493846700199830898, guid: 16dabd1ac80cbba46ade5a9cb779ccc1, type: 3}
   buildCost: 120
-  upgradeCost: 200
+  upgradeCost: 220
   sellValue: 80
   nextLevel: {fileID: 11400000, guid: a4946025e1815934f9bfc2dceef4c156, type: 2}
   damage: 8
@@ -24,6 +24,5 @@ MonoBehaviour:
   range: 4
   damageType: 0
   splashRadius: 0
-  statusEffect: 2
   targetPriority: 3
   projectilePrefab: {fileID: 1317255358710006207, guid: 7d5166f353b59e243ae8e4b1215d62a9, type: 3}

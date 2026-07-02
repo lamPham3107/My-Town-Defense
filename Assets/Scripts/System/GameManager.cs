@@ -31,10 +31,6 @@ public class GameManager : MonoBehaviour
         ResourceManager.Instance.OnGameOver += HandleGameOver;
         WaveManager.instance.OnAllWavesCompleted += HandleVictory;
     }
-    public void StartGame()
-    {
-
-    }
     private void HandleGameOver()
     {
         Time.timeScale = 0f;

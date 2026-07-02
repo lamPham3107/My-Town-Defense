@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   displayName: z3
-  maxHp: 100
+  maxHp: 110
   speed: 0.2
   armor: 0
   magicResist: 30

@@ -63,7 +63,6 @@ public class WaveManager : MonoBehaviour
         }
 
         ResourceManager.Instance.Init(_mapData.startingGold, _mapData.startingLives);
-
         UpdateWaveText();
         UIManager.Instance.ShowButtonStartWave();
     }
@@ -109,25 +108,19 @@ public class WaveManager : MonoBehaviour
         UpdateWaveText();
         ShowWaveBar();  
         OnWaveStarted?.Invoke(_currentWaveIndex + 1, _mapData.waveConfigs.Length);
-
         foreach ( var group in config.zombieGroups)
         {
-            Debug.Log("Group: " + group.ZombieData.id + " count: " + group.count);
             for (int i = 0; i < group.count; i++)
             {
-                Debug.Log("Spawning Zombie: " + group.ZombieData.id);
                 SpawnZombie(group.ZombieData, group.pathIndex);
                 _aliveZombies++;
                 yield return new WaitForSeconds(config.spawnDelay);
             }
         }
         _currentWaveIndex++;
-        //_currentWaveState = WaveState.Completed;
-        //OnWaveCompleted?.Invoke(_currentWaveIndex - 1);
         if (_currentWaveIndex < _mapData.waveConfigs.Length)
         {
             float waitTime = _mapData.waveConfigs[_currentWaveIndex].delayBeforeWave;
-            Debug.Log($"Wave {_currentWaveIndex} completed. Next wave in {waitTime} seconds.");
             StartCoroutine(NotifyNextWaveReady(waitTime));
         }
         else
@@ -137,14 +130,12 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             OnAllWavesCompleted?.Invoke();
         }
-
     }
 
     private void SpawnZombie(ZombieData data, int pathIndex)
     {
         if(!_prefabLookup.TryGetValue(data.id, out var prefab))
         {
-            Debug.LogError($"No prefab found for Zombie ID: {data.id}");
             _aliveZombies--;
             return;
         }

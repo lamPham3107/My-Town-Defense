@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Electer Lv 1
   towerPrefab: {fileID: 1713057964621449947, guid: 66bbf45493f1b774dac76864a02582e8, type: 3}
   buildCost: 0
-  upgradeCost: 300
+  upgradeCost: 350
   sellValue: 250
   nextLevel: {fileID: 11400000, guid: c1e849ac8c325d347911b56a7994db86, type: 2}
   damage: 15
@@ -24,6 +24,5 @@ MonoBehaviour:
   range: 3
   damageType: 1
   splashRadius: 0
-  statusEffect: 2
   targetPriority: 4
   projectilePrefab: {fileID: 5640889003446055751, guid: 80867c547e8fea948b6fa51a9a1fa83a, type: 3}
